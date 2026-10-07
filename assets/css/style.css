@@ -306,11 +306,6 @@ p { margin: 0 0 1em; }
   letter-spacing: -0.015em;
   color: var(--ink-2);
 }
-.hero__lead mark {
-  background: linear-gradient(transparent 62%, var(--accent-soft) 62%);
-  color: var(--ink);
-  padding: 0 2px;
-}
 
 .hero__now {
   display: grid;
