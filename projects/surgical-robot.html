@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>6-Axis Surgical Robot Arm — Josiah Lo</title>
+  <meta name="description" content="A 3D-printed six-axis robot arm designed in SolidWorks, with a custom two-stage 15:1 cycloidal gearbox at the base joint and wiring routed for a 20-inch reach radius.">
+  <link rel="canonical" href="https://josiahdlo.github.io/projects/surgical-robot.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="6-Axis Surgical Robot Arm — Josiah Lo">
+  <meta property="og:description" content="A 3D-printed six-axis arm with a custom two-stage 15:1 cycloidal gearbox at the base joint.">
+  <meta property="og:url" content="https://josiahdlo.github.io/projects/surgical-robot.html">
+  <meta property="og:image" content="https://josiahdlo.github.io/assets/img/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="nav">
+    <div class="wrap nav__inner">
+      <a class="brand" href="../index.html" aria-label="Josiah Lo — home">
+        <span class="brand__mark" aria-hidden="true">JL</span>
+        Josiah Lo
+      </a>
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+        <span class="nav__toggle-bars" aria-hidden="true"></span> Menu
+      </button>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="../index.html#experience">Experience</a></li>
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../index.html#skills">Skills</a></li>
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+        <li><a class="nav__resume" href="../assets/Josiah_Lo_Resume.pdf" target="_blank" rel="noopener">Résumé</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="phero">
+      <div class="wrap">
+        <a class="back" href="../index.html#projects">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 19l-7-7 7-7"/></svg>
+          All projects
+        </a>
+        <p class="phero__eyebrow label">Personal project · Robotics · Mechanism design</p>
+        <h1 class="phero__title">6-Axis Surgical Robot Arm</h1>
+        <p class="phero__lead">A six-axis robotic arm I designed in SolidWorks and fabricated with 3D printing. The base joint runs through a custom two-stage, 15:1 cycloidal gearbox, and the wiring is routed through the arm so all six axes keep their range of motion across a 20-inch reach radius.</p>
+        <dl class="meta">
+          <div><dt class="label">Role</dt><dd>Designer &amp; builder</dd></div>
+          <div><dt class="label">Timeline</dt><dd>Dec 2025 – May 2026</dd></div>
+          <div><dt class="label">Type</dt><dd>Personal project</dd></div>
+          <div><dt class="label">Tools</dt><dd>SolidWorks, 3D printing</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <figure class="cover">
+        <a href="../assets/img/robot/arm-reach.webp" data-zoom><img src="../assets/img/robot/arm-reach.webp" width="1424" height="708" alt="SolidWorks render of the robot arm extended to its reach"></a>
+        <figcaption class="label">Full arm assembly on the gearbox base (SolidWorks)</figcaption>
+      </figure>
+
+      <div class="results" style="--cols:3">
+        <div class="stat">
+          <span class="label">Axes</span>
+          <div class="stat__num">6</div>
+          <p class="stat__text">Degrees of freedom in the arm</p>
+        </div>
+        <div class="stat">
+          <span class="label">Base reduction</span>
+          <div class="stat__num">15:1</div>
+          <p class="stat__text">Custom two-stage cycloidal gearbox at the base joint</p>
+        </div>
+        <div class="stat">
+          <span class="label">Reach</span>
+          <div class="stat__num">20 <small>in</small></div>
+          <p class="stat__text">Reach radius, with wiring routed to keep clearance on all six axes</p>
+        </div>
+      </div>
+
+      <div class="pbody">
+        <nav class="toc" aria-label="On this page">
+          <span class="label">On this page</span>
+          <ol>
+            <li><a href="#overview">Overview</a></li>
+            <li><a href="#gearbox">Cycloidal gearbox</a></li>
+            <li><a href="#wiring">Wire routing</a></li>
+            <li><a href="#evolution">Design evolution</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+          </ol>
+        </nav>
+
+        <article class="prose">
+          <section id="overview">
+            <h2><span class="section__num">01</span>Overview</h2>
+            <p>I took on this personal project to design and build a complete six-axis arm myself. I modeled the full arm in SolidWorks, from the base and gearbox through the links and the wrist, then fabricated the components with 3D printing.</p>
+          </section>
+
+          <section id="gearbox">
+            <h2><span class="section__num">02</span>Cycloidal gearbox</h2>
+            <p>The base joint is driven through a <strong>custom two-stage cycloidal gearbox with a 15:1 reduction</strong>. I designed it in SolidWorks, from the cycloidal disc profile to the housing, and 3D-printed it along with the rest of the arm.</p>
+            <div class="fig-row">
+              <figure class="fig">
+                <a href="../assets/img/robot/cycloid-profile.webp" data-zoom><img src="../assets/img/robot/cycloid-profile.webp" width="983" height="744" alt="Cycloidal disc profile sketch in SolidWorks" loading="lazy"></a>
+                <figcaption>Cycloidal disc profile in SolidWorks</figcaption>
+              </figure>
+              <figure class="fig">
+                <a href="../assets/img/robot/gearbox-exploded.webp" data-zoom><img src="../assets/img/robot/gearbox-exploded.webp" width="615" height="750" alt="Exploded view of the base cycloidal gearbox with stepper motor" loading="lazy"></a>
+                <figcaption>Exploded view of the base gearbox, with the stepper motor below</figcaption>
+              </figure>
+            </div>
+            <figure class="fig">
+              <a href="../assets/img/robot/gearbox-assembled.webp" data-zoom><img src="../assets/img/robot/gearbox-assembled.webp" width="622" height="438" alt="Assembled cycloidal gearbox housing" loading="lazy"></a>
+              <figcaption>Assembled gearbox</figcaption>
+            </figure>
+          </section>
+
+          <section id="wiring">
+            <h2><span class="section__num">03</span>Wire routing</h2>
+            <p>Six axes means a lot of wiring to manage. I routed and integrated the wiring through the arm so it keeps clearance through the full range of motion on all six axes, across a <strong>20-inch reach radius</strong>.</p>
+          </section>
+
+          <section id="evolution">
+            <h2><span class="section__num">04</span>Design evolution</h2>
+            <p>My early layouts sat the arm on a simple round base. The later design mounts it on the cycloidal-gearbox base housing.</p>
+            <div class="fig-row">
+              <figure class="fig">
+                <a href="../assets/img/robot/early-a.webp" data-zoom><img src="../assets/img/robot/early-a.webp" width="983" height="672" alt="Early robot arm layout on a simple round base" loading="lazy"></a>
+                <figcaption>Early layout on a simple round base</figcaption>
+              </figure>
+              <figure class="fig">
+                <a href="../assets/img/robot/arm-hero.webp" data-zoom><img src="../assets/img/robot/arm-hero.webp" width="983" height="751" alt="Later robot arm layout on the gearbox base housing" loading="lazy"></a>
+                <figcaption>Later layout on the gearbox base housing</figcaption>
+              </figure>
+            </div>
+          </section>
+        </article>
+      </div>
+    </div>
+
+    <section class="gallery-section" id="gallery">
+      <div class="wrap">
+        <div class="section__head">
+          <span class="section__num">05</span>
+          <h2 class="section__title">Gallery</h2>
+          <span class="section__rule" aria-hidden="true"></span>
+        </div>
+        <div class="gallery">
+          <figure><a href="../assets/img/robot/arm-raised.webp" data-zoom><img src="../assets/img/robot/arm-raised.webp" width="529" height="746" alt="Robot arm raised, front view" loading="lazy"></a><figcaption>Arm raised</figcaption></figure>
+          <figure><a href="../assets/img/robot/arm-rear.webp" data-zoom><img src="../assets/img/robot/arm-rear.webp" width="651" height="567" alt="Robot arm from behind, showing the base housing" loading="lazy"></a><figcaption>Rear view of the base housing</figcaption></figure>
+          <figure><a href="../assets/img/robot/early-b.webp" data-zoom><img src="../assets/img/robot/early-b.webp" width="945" height="833" alt="Early arm layout, folded pose" loading="lazy"></a><figcaption>Early layout, folded pose</figcaption></figure>
+          <figure><a href="../assets/img/robot/early-c.webp" data-zoom><img src="../assets/img/robot/early-c.webp" width="1297" height="592" alt="Early arm layout, extended" loading="lazy"></a><figcaption>Early layout, extended</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="pnext">
+      <div class="wrap">
+        <a href="roll-cage.html">
+          <div><span class="label">Next project</span><strong>Solar Car Roll Cage</strong></div>
+          <span class="card__go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <span>© <span data-year>2026</span> Josiah Lo</span>
+      <nav aria-label="Footer">
+        <a href="../assets/Josiah_Lo_Resume.pdf" target="_blank" rel="noopener">Résumé</a>
+        <a href="https://www.linkedin.com/in/josiahdavidlo" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:josiahlo@berkeley.edu">Email</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js" defer></script>
+</body>
+</html>

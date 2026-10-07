@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Composite Suspension Box — Josiah Lo</title>
+  <meta name="description" content="FEA verification and redesign of a laminate-composite suspension box for UC Berkeley's 11th-generation solar vehicle: safety factor raised from 0.09 to 1.03 with an 8.9% weight increase.">
+  <link rel="canonical" href="https://josiahdlo.github.io/projects/suspension-box.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Composite Suspension Box — Josiah Lo">
+  <meta property="og:description" content="Composite FEA in Ansys ACP and a SolidWorks redesign that raised the safety factor from 0.09 to 1.03 at +8.9% weight.">
+  <meta property="og:url" content="https://josiahdlo.github.io/projects/suspension-box.html">
+  <meta property="og:image" content="https://josiahdlo.github.io/assets/img/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="nav">
+    <div class="wrap nav__inner">
+      <a class="brand" href="../index.html" aria-label="Josiah Lo — home">
+        <span class="brand__mark" aria-hidden="true">JL</span>
+        Josiah Lo
+      </a>
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+        <span class="nav__toggle-bars" aria-hidden="true"></span> Menu
+      </button>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="../index.html#experience">Experience</a></li>
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../index.html#skills">Skills</a></li>
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+        <li><a class="nav__resume" href="../assets/Josiah_Lo_Resume.pdf" target="_blank" rel="noopener">Résumé</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="phero">
+      <div class="wrap">
+        <a class="back" href="../index.html#projects">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 19l-7-7 7-7"/></svg>
+          All projects
+        </a>
+        <p class="phero__eyebrow label">UC Berkeley Solar Vehicle Team · Structures · Composites</p>
+        <h1 class="phero__title">Composite Suspension Box</h1>
+        <p class="phero__lead">The suspension box is a laminate-composite structure at the front of UC Berkeley’s 11th-generation solar vehicle. I ran the finite element analysis to check it against the maximum load conditions, found it well short of the required safety factor, and redesigned it until it passed, limiting the weight increase to 8.9%.</p>
+        <dl class="meta">
+          <div><dt class="label">Role</dt><dd>Project Lead</dd></div>
+          <div><dt class="label">Timeline</dt><dd>Oct 2025 – Present</dd></div>
+          <div><dt class="label">Team</dt><dd>UC Berkeley Solar Vehicle Team</dd></div>
+          <div><dt class="label">Tools</dt><dd>Ansys ACP, Ansys Structural, SolidWorks</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <figure class="cover">
+        <a href="../assets/img/susbox/vehicle-context.webp" data-zoom><img src="../assets/img/susbox/vehicle-context.webp" width="1426" height="778" alt="The suspension box shown inside the solar vehicle assembly"></a>
+        <figcaption class="label">The suspension box in the vehicle assembly</figcaption>
+      </figure>
+
+      <div class="results" style="--cols:3">
+        <div class="stat">
+          <span class="label">Safety factor</span>
+          <div class="stat__num">0.09<span class="arrow">→</span>1.03</div>
+          <p class="stat__text">Before and after the redesign, under maximum load conditions</p>
+        </div>
+        <div class="stat">
+          <span class="label">Weight</span>
+          <div class="stat__num">+8.9%</div>
+          <p class="stat__text">Weight increase from the redesign</p>
+        </div>
+        <div class="stat">
+          <span class="label">Target</span>
+          <div class="stat__num">≥ 1.0</div>
+          <p class="stat__text">Required safety factor, now validated in Ansys</p>
+        </div>
+      </div>
+
+      <div class="pbody">
+        <nav class="toc" aria-label="On this page">
+          <span class="label">On this page</span>
+          <ol>
+            <li><a href="#problem">The problem</a></li>
+            <li><a href="#approach">Approach</a></li>
+            <li><a href="#results">Results</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+          </ol>
+        </nav>
+
+        <article class="prose">
+          <section id="problem">
+            <h2><span class="section__num">01</span>The problem</h2>
+            <p>The team needed to know whether the laminate-composite suspension box would survive the vehicle’s maximum load conditions. My goals were to:</p>
+            <ul>
+              <li><strong>Verify</strong> the existing laminate design with finite element analysis</li>
+              <li><strong>Redesign</strong> it to meet a safety factor of at least 1</li>
+              <li><strong>Integrate</strong> it with the adjacent vehicle systems: the suspension mounting angles and the steering column</li>
+            </ul>
+            <div class="callout"><p>The initial design came out at a safety factor of <strong>0.09</strong>, less than a tenth of what was required.</p></div>
+          </section>
+
+          <section id="approach">
+            <h2><span class="section__num">02</span>Approach</h2>
+            <ol class="steps">
+              <li>
+                <h3>Composite FEA</h3>
+                <p>I entered the composite material data into Ansys Composite PrepPost (ACP) to define the laminate, then used Ansys Structural to run FEA on the suspension box under maximum load conditions.</p>
+              </li>
+              <li>
+                <h3>Redesign around the stress concentrations</h3>
+                <p>The results showed high stress concentrations at the joints. I redesigned the box in SolidWorks to support those joints, then reran the FEA to check the new design.</p>
+              </li>
+              <li>
+                <h3>Fit it to the rest of the vehicle</h3>
+                <p>I adjusted the design in SolidWorks to accommodate the suspension mounting angles and the steering column, checking clearances against the vehicle master assembly.</p>
+              </li>
+            </ol>
+
+            <div class="fig-row">
+              <figure class="fig">
+                <a href="../assets/img/susbox/fea-principal.webp" data-zoom><img src="../assets/img/susbox/fea-principal.webp" width="500" height="388" alt="Ansys plot of maximum principal stress in one laminate layer" loading="lazy"></a>
+                <figcaption>Maximum principal stress in one laminate layer (Ansys ACP)</figcaption>
+              </figure>
+              <figure class="fig">
+                <a href="../assets/img/susbox/fea-vonmises.webp" data-zoom><img src="../assets/img/susbox/fea-vonmises.webp" width="762" height="510" alt="Ansys plot of equivalent von Mises stress" loading="lazy"></a>
+                <figcaption>Equivalent (von Mises) stress</figcaption>
+              </figure>
+            </div>
+
+            <figure class="fig">
+              <a href="../assets/img/susbox/clearance-1.webp" data-zoom><img src="../assets/img/susbox/clearance-1.webp" width="1496" height="740" alt="SolidWorks measurement of clearances in the vehicle master assembly" loading="lazy"></a>
+              <figcaption>Measuring clearances to surrounding hardware in the vehicle master assembly</figcaption>
+            </figure>
+          </section>
+
+          <section id="results">
+            <h2><span class="section__num">03</span>Results</h2>
+            <ul>
+              <li>Raised the design’s safety factor from <strong>0.09 to 1.03</strong> while limiting the weight increase to <strong>8.9%</strong>.</li>
+              <li>Delivered a finished suspension box design with its safety factor validated in Ansys, ready for manufacturing and integration into UC Berkeley’s 11th-generation solar vehicle.</li>
+            </ul>
+          </section>
+        </article>
+      </div>
+    </div>
+
+    <section class="gallery-section" id="gallery">
+      <div class="wrap">
+        <div class="section__head">
+          <span class="section__num">04</span>
+          <h2 class="section__title">Gallery</h2>
+          <span class="section__rule" aria-hidden="true"></span>
+        </div>
+        <div class="gallery">
+          <figure><a href="../assets/img/susbox/fea-hero.webp" data-zoom><img src="../assets/img/susbox/fea-hero.webp" width="1248" height="833" alt="Colored FEA results on the suspension box mesh" loading="lazy"></a><figcaption>FEA results on the laminate mesh</figcaption></figure>
+          <figure><a href="../assets/img/susbox/fea-deformation.webp" data-zoom><img src="../assets/img/susbox/fea-deformation.webp" width="761" height="500" alt="Ansys total deformation plot" loading="lazy"></a><figcaption>Total deformation</figcaption></figure>
+          <figure><a href="../assets/img/susbox/fea-joints.webp" data-zoom><img src="../assets/img/susbox/fea-joints.webp" width="1281" height="801" alt="Close-up of FEA results on the box panels" loading="lazy"></a><figcaption>Close-up of the FEA results</figcaption></figure>
+          <figure><a href="../assets/img/susbox/geometry.webp" data-zoom><img class="fit" src="../assets/img/susbox/geometry.webp" width="809" height="744" alt="Panel geometry of the suspension box" loading="lazy"></a><figcaption>Panel geometry used for the FEA model</figcaption></figure>
+          <figure><a href="../assets/img/susbox/vehicle-front.webp" data-zoom><img src="../assets/img/susbox/vehicle-front.webp" width="1089" height="978" alt="Front of the vehicle assembly with wheel, suspension, and steering column" loading="lazy"></a><figcaption>Front of the vehicle assembly with the wheel, suspension, and steering column</figcaption></figure>
+          <figure><a href="../assets/img/susbox/clearance-2.webp" data-zoom><img src="../assets/img/susbox/clearance-2.webp" width="1271" height="712" alt="Clearance measurement in SolidWorks" loading="lazy"></a><figcaption>Clearance check in the vehicle master assembly</figcaption></figure>
+          <figure><a href="../assets/img/susbox/clearance-3.webp" data-zoom><img src="../assets/img/susbox/clearance-3.webp" width="1592" height="825" alt="Measurement at a suspension mounting point in SolidWorks" loading="lazy"></a><figcaption>Measurement at a suspension mounting point</figcaption></figure>
+          <figure><a href="../assets/img/susbox/iteration-a.webp" data-zoom><img class="fit" src="../assets/img/susbox/iteration-a.webp" width="687" height="561" alt="Later design iteration of the suspension box" loading="lazy"></a><figcaption>Later design iteration (March 2026)</figcaption></figure>
+          <figure><a href="../assets/img/susbox/iteration-b.webp" data-zoom><img class="fit" src="../assets/img/susbox/iteration-b.webp" width="541" height="486" alt="Later design iteration of the suspension box, alternate view" loading="lazy"></a><figcaption>Later design iteration, alternate view</figcaption></figure>
+          <figure><a href="../assets/img/susbox/iteration-vehicle.webp" data-zoom><img src="../assets/img/susbox/iteration-vehicle.webp" width="1039" height="700" alt="Later suspension box iteration in the vehicle assembly" loading="lazy"></a><figcaption>Later iteration in the vehicle assembly</figcaption></figure>
+          <figure><a href="../assets/img/susbox/vehicle-underside.webp" data-zoom><img src="../assets/img/susbox/vehicle-underside.webp" width="1410" height="804" alt="Underside view of the vehicle assembly" loading="lazy"></a><figcaption>Underside view of the vehicle assembly</figcaption></figure>
+          <figure><a href="../assets/img/susbox/vehicle-assembly.webp" data-zoom><img src="../assets/img/susbox/vehicle-assembly.webp" width="1600" height="780" alt="Full solar vehicle assembly" loading="lazy"></a><figcaption>Full vehicle assembly (September 2026)</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="pnext">
+      <div class="wrap">
+        <a href="surgical-robot.html">
+          <div><span class="label">Next project</span><strong>6-Axis Surgical Robot Arm</strong></div>
+          <span class="card__go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <span>© <span data-year>2026</span> Josiah Lo</span>
+      <nav aria-label="Footer">
+        <a href="../assets/Josiah_Lo_Resume.pdf" target="_blank" rel="noopener">Résumé</a>
+        <a href="https://www.linkedin.com/in/josiahdavidlo" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:josiahlo@berkeley.edu">Email</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js" defer></script>
+</body>
+</html>

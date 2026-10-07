@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lever-Actuated Sponge Press — Josiah Lo</title>
+  <meta name="description" content="A four-bar slider-crank sponge press with interference and clearance fits, an ASME Y14.5 drawing package, and 3D-printed prototypes.">
+  <link rel="canonical" href="https://josiahdlo.github.io/projects/sponge-press.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Lever-Actuated Sponge Press — Josiah Lo">
+  <meta property="og:description" content="Mechanism design, fits and tolerances, and an ASME Y14.5 drawing package for a 9-part assembly.">
+  <meta property="og:url" content="https://josiahdlo.github.io/projects/sponge-press.html">
+  <meta property="og:image" content="https://josiahdlo.github.io/assets/img/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="nav">
+    <div class="wrap nav__inner">
+      <a class="brand" href="../index.html" aria-label="Josiah Lo — home">
+        <span class="brand__mark" aria-hidden="true">JL</span>
+        Josiah Lo
+      </a>
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+        <span class="nav__toggle-bars" aria-hidden="true"></span> Menu
+      </button>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="../index.html#experience">Experience</a></li>
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../index.html#skills">Skills</a></li>
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+        <li><a class="nav__resume" href="../assets/Josiah_Lo_Resume.pdf" target="_blank" rel="noopener">Résumé</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="phero">
+      <div class="wrap">
+        <a class="back" href="../index.html#projects">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 19l-7-7 7-7"/></svg>
+          All projects
+        </a>
+        <p class="phero__eyebrow label">Team project · Mechanism design · GD&amp;T</p>
+        <h1 class="phero__title">Lever-Actuated Sponge Press</h1>
+        <p class="phero__lead">A lever-actuated press that compresses a sponge with a sliding plate, driven by a four-bar slider-crank linkage. Beyond the mechanism, the focus was manufacturing documentation: fits, tolerances, and a drawing package to ASME Y14.5, backed by 3D-printed prototypes.</p>
+        <dl class="meta">
+          <div><dt class="label">Context</dt><dd>Team project</dd></div>
+          <div><dt class="label">Timeline</dt><dd>Oct – Nov 2025</dd></div>
+          <div><dt class="label">Deliverables</dt><dd>Drawing package, BOM, prototype</dd></div>
+          <div><dt class="label">Tools</dt><dd>SolidWorks, GD&amp;T, 3D printing</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <figure class="cover cover--pad">
+        <a href="../assets/img/press/render-iso.webp" data-zoom><img src="../assets/img/press/render-iso.webp" width="902" height="849" alt="SolidWorks render of the sponge press"></a>
+        <figcaption class="label">Final design (SolidWorks)</figcaption>
+      </figure>
+
+      <div class="results" style="--cols:3">
+        <div class="stat">
+          <span class="label">Mechanism</span>
+          <div class="stat__num">4-bar</div>
+          <p class="stat__text">Slider-crank linkage turning lever rotation into vertical press motion</p>
+        </div>
+        <div class="stat">
+          <span class="label">Assembly</span>
+          <div class="stat__num">9 <small>parts</small></div>
+          <p class="stat__text">Modeled in SolidWorks with press and clearance fits</p>
+        </div>
+        <div class="stat">
+          <span class="label">Documentation</span>
+          <div class="stat__num">Y14.5</div>
+          <p class="stat__text">ASME-compliant drawing package with GD&amp;T</p>
+        </div>
+      </div>
+
+      <div class="pbody">
+        <nav class="toc" aria-label="On this page">
+          <span class="label">On this page</span>
+          <ol>
+            <li><a href="#mechanism">Mechanism</a></li>
+            <li><a href="#fits">Fits &amp; tolerances</a></li>
+            <li><a href="#drawings">Drawing package</a></li>
+            <li><a href="#prototyping">Prototyping</a></li>
+            <li><a href="#results">Results</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+          </ol>
+        </nav>
+
+        <article class="prose">
+          <section id="mechanism">
+            <h2><span class="section__num">01</span>Mechanism</h2>
+            <p>I designed a <strong>four-bar slider-crank linkage</strong> that converts the lever’s rotation into the vertical motion of a sliding press plate, and modeled the full <strong>9-part assembly</strong> in SolidWorks.</p>
+            <figure class="fig">
+              <a href="../assets/img/press/render-side.webp" data-zoom><img src="../assets/img/press/render-side.webp" width="667" height="754" alt="Side view of the sponge press linkage" loading="lazy" class="tall"></a>
+              <figcaption>Side view of the linkage</figcaption>
+            </figure>
+          </section>
+
+          <section id="fits">
+            <h2><span class="section__num">02</span>Fits &amp; tolerances</h2>
+            <p>I sized <strong>interference fits</strong> for the rod-to-hole press fits and <strong>clearance fits</strong> for the sliding components.</p>
+            <figure class="fig">
+              <a href="../assets/img/press/drawing-detail.webp" data-zoom><img src="../assets/img/press/drawing-detail.webp" width="634" height="519" alt="Detail drawing of a link with toleranced holes and GD&amp;T callouts" loading="lazy"></a>
+              <figcaption>Detail drawing with toleranced holes and GD&amp;T callouts</figcaption>
+            </figure>
+          </section>
+
+          <section id="drawings">
+            <h2><span class="section__num">03</span>Drawing package</h2>
+            <p>I drafted the <strong>exploded assembly drawing</strong>, the <strong>outline assembly drawing</strong>, and the <strong>bill of materials</strong>, and worked with my team on the detail drawings to make sure the geometric dimensioning and tolerancing was correct.</p>
+            <figure class="fig">
+              <a href="../assets/img/press/drawing-exploded.webp" data-zoom><img src="../assets/img/press/drawing-exploded.webp" width="1054" height="817" alt="Exploded assembly drawing with bill of materials" loading="lazy"></a>
+              <figcaption>Exploded assembly drawing with bill of materials</figcaption>
+            </figure>
+          </section>
+
+          <section id="prototyping">
+            <h2><span class="section__num">04</span>Prototyping</h2>
+            <p>The press was fabricated with 3D printing. We went through multiple prototype cycles to refine the geometry and verify the fit tolerances.</p>
+            <div class="fig-row">
+              <figure class="fig">
+                <a href="../assets/img/press/proto-c.webp" data-zoom><img src="../assets/img/press/proto-c.webp" width="1200" height="1600" alt="3D-printed prototype with a sponge loaded" loading="lazy"></a>
+                <figcaption>Printed prototype with a sponge loaded</figcaption>
+              </figure>
+              <figure class="fig">
+                <a href="../assets/img/press/proto-cad-a.webp" data-zoom><img src="../assets/img/press/proto-cad-a.webp" width="697" height="797" alt="SolidWorks model of a prototype iteration" loading="lazy"></a>
+                <figcaption>CAD for that prototype iteration</figcaption>
+              </figure>
+            </div>
+          </section>
+
+          <section id="results">
+            <h2><span class="section__num">05</span>Results</h2>
+            <ul>
+              <li>Delivered a functional prototype with a reliable compression mechanism.</li>
+              <li>Produced an ASME Y14.5-compliant drawing package.</li>
+              <li>Iterated through multiple prototype cycles to refine geometry and verify fit tolerances.</li>
+            </ul>
+          </section>
+        </article>
+      </div>
+    </div>
+
+    <section class="gallery-section" id="gallery">
+      <div class="wrap">
+        <div class="section__head">
+          <span class="section__num">06</span>
+          <h2 class="section__title">Gallery</h2>
+          <span class="section__rule" aria-hidden="true"></span>
+        </div>
+        <div class="gallery">
+          <figure><a href="../assets/img/press/drawing-outline.webp" data-zoom><img class="fit" src="../assets/img/press/drawing-outline.webp" width="1054" height="812" alt="Outline assembly drawing" loading="lazy"></a><figcaption>Outline assembly drawing</figcaption></figure>
+          <figure><a href="../assets/img/press/proto-a.webp" data-zoom><img src="../assets/img/press/proto-a.webp" width="1200" height="1600" alt="Printed prototype, front view" loading="lazy"></a><figcaption>Printed prototype</figcaption></figure>
+          <figure><a href="../assets/img/press/proto-b.webp" data-zoom><img src="../assets/img/press/proto-b.webp" width="1200" height="1600" alt="Printed prototype with lever arms" loading="lazy"></a><figcaption>Printed prototype, lever arms attached</figcaption></figure>
+          <figure><a href="../assets/img/press/proto-cad-b.webp" data-zoom><img src="../assets/img/press/proto-cad-b.webp" width="707" height="791" alt="Prototype iteration CAD, alternate view" loading="lazy"></a><figcaption>Prototype iteration CAD, alternate view</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="pnext">
+      <div class="wrap">
+        <a href="suspension-box.html">
+          <div><span class="label">Next project</span><strong>Composite Suspension Box</strong></div>
+          <span class="card__go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <span>© <span data-year>2026</span> Josiah Lo</span>
+      <nav aria-label="Footer">
+        <a href="../assets/Josiah_Lo_Resume.pdf" target="_blank" rel="noopener">Résumé</a>
+        <a href="https://www.linkedin.com/in/josiahdavidlo" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:josiahlo@berkeley.edu">Email</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js" defer></script>
+</body>
+</html>

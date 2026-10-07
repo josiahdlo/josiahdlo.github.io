@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Solar Car Roll Cage — Josiah Lo</title>
+  <meta name="description" content="Roll cage design for UC Berkeley's solar vehicle team: AISI 4130 chromoly selected with Ashby charts, validated in Ansys at a safety factor of 1.86 under a 15 kN front load.">
+  <link rel="canonical" href="https://josiahdlo.github.io/projects/roll-cage.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Solar Car Roll Cage — Josiah Lo">
+  <meta property="og:description" content="AISI 4130 chromoly roll cage: safety factor 1.86 under a 15 kN front load, 0.049 in max deflection, 26.08 lb.">
+  <meta property="og:url" content="https://josiahdlo.github.io/projects/roll-cage.html">
+  <meta property="og:image" content="https://josiahdlo.github.io/assets/img/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="nav">
+    <div class="wrap nav__inner">
+      <a class="brand" href="../index.html" aria-label="Josiah Lo — home">
+        <span class="brand__mark" aria-hidden="true">JL</span>
+        Josiah Lo
+      </a>
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+        <span class="nav__toggle-bars" aria-hidden="true"></span> Menu
+      </button>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="../index.html#experience">Experience</a></li>
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../index.html#skills">Skills</a></li>
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+        <li><a class="nav__resume" href="../assets/Josiah_Lo_Resume.pdf" target="_blank" rel="noopener">Résumé</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="phero">
+      <div class="wrap">
+        <a class="back" href="../index.html#projects">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 19l-7-7 7-7"/></svg>
+          All projects
+        </a>
+        <p class="phero__eyebrow label">UC Berkeley Solar Vehicle Team · Structures · Materials</p>
+        <h1 class="phero__title">Solar Car Roll Cage</h1>
+        <p class="phero__lead">A chassis team project to design a roll cage that meets American Solar Challenge safety requirements and carries a 15 kN front load with as little weight and deflection as possible. The final AISI 4130 chromoly design reached a safety factor of 1.86 with 0.049 in of maximum deflection, at 26.08 lb.</p>
+        <dl class="meta">
+          <div><dt class="label">My work</dt><dd>CAD, FEA &amp; material selection</dd></div>
+          <div><dt class="label">Team</dt><dd>3 students, chassis intro project</dd></div>
+          <div><dt class="label">Timeline</dt><dd>Sep – Oct 2025</dd></div>
+          <div><dt class="label">Tools</dt><dd>SolidWorks, Ansys Structural, Ashby charts</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <figure class="cover cover--pad">
+        <a href="../assets/img/rollcage/cad.webp" data-zoom><img src="../assets/img/rollcage/cad.webp" width="884" height="655" alt="SolidWorks model of the roll cage"></a>
+        <figcaption class="label">Final roll cage design (SolidWorks)</figcaption>
+      </figure>
+
+      <div class="results" style="--cols:4">
+        <div class="stat">
+          <span class="label">Safety factor</span>
+          <div class="stat__num">1.86</div>
+          <p class="stat__text">Minimum, under a 15 kN front load (required ≥ 1)</p>
+        </div>
+        <div class="stat">
+          <span class="label">Deflection</span>
+          <div class="stat__num">0.049 <small>in</small></div>
+          <p class="stat__text">Maximum deflection under the 15 kN load</p>
+        </div>
+        <div class="stat">
+          <span class="label">Weight</span>
+          <div class="stat__num">26.08 <small>lb</small></div>
+          <p class="stat__text">Total cage weight</p>
+        </div>
+        <div class="stat">
+          <span class="label">Objective</span>
+          <div class="stat__num">1.28 <small>lb·in</small></div>
+          <p class="stat__text">Weight × max deflection, the value the design minimized</p>
+        </div>
+      </div>
+
+      <div class="pbody">
+        <nav class="toc" aria-label="On this page">
+          <span class="label">On this page</span>
+          <ol>
+            <li><a href="#brief">Design brief</a></li>
+            <li><a href="#material">Material selection</a></li>
+            <li><a href="#structure">Structural design</a></li>
+            <li><a href="#fea">FEA</a></li>
+            <li><a href="#results">Results</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+          </ol>
+        </nav>
+
+        <article class="prose">
+          <section id="brief">
+            <h2><span class="section__num">01</span>Design brief</h2>
+            <dl class="brief">
+              <div><dt>Objective</dt><dd>Minimize the product of maximum deflection and weight, keeping weight down and stiffness up.</dd></div>
+              <div><dt>Constraints</dt><dd><ul><li>Safety factor of at least 1</li><li>Material must be metal (American Solar Challenge regulations)</li><li>The occupant’s head space must not be impeded</li></ul></dd></div>
+              <div><dt>Assumptions</dt><dd><ul><li>A 15 kN load on the horizontal section of the front roll cage frame</li><li>The existing, incomplete roll cage could not be altered</li></ul></dd></div>
+            </dl>
+          </section>
+
+          <section id="material">
+            <h2><span class="section__num">02</span>Material selection</h2>
+            <p>I used Ashby charts to compare aluminum, titanium, nickel, and steel alloys on Young’s modulus-to-density ratio, yield strength, and fracture toughness. Steels offered some of the highest fracture toughness and yield strengths, a high modulus-to-density ratio, and reasonable cost and manufacturability.</p>
+            <p>Between the two most common roll cage steels, mild steel (AISI 1020) and chromoly (AISI 4130), the densities are nearly identical, but chromoly has a higher yield strength and Young’s modulus. Mild steel is cheaper, but <strong>AISI 4130</strong> allowed for minimal weight and deflection while staying affordable, so it became the material choice.</p>
+            <figure class="fig">
+              <a href="../assets/img/rollcage/ashby.webp" data-zoom><img src="../assets/img/rollcage/ashby.webp" width="938" height="728" alt="Ashby chart of Young's modulus versus density for material families" loading="lazy"></a>
+              <figcaption>Young’s modulus vs. density Ashby chart used to screen material families</figcaption>
+            </figure>
+          </section>
+
+          <section id="structure">
+            <h2><span class="section__num">03</span>Structural design</h2>
+            <p>The goal was to support the 15 kN front load without failure and with minimal deflection, adding as little weight as possible.</p>
+            <ul>
+              <li><strong>Diagonal tubes</strong> (1.25 in × 0.12 in) direct stress into the side struts.</li>
+              <li>A <strong>center tube</strong> (1.50 in × 0.12 in) supports the central load and curves to distribute stress onto the rear frame.</li>
+              <li>A <strong>rear fifth strut</strong> (1.50 in × 0.12 in) supports the rear frame and spreads the moment reaction across three rear fixed supports.</li>
+              <li>Large-radius tubes increase the area moment of inertia for better bending resistance per pound. The 1.50 in and 1.25 in × 0.12 in sizes also match the existing geometry, which reduces manufacturing complexity and cost.</li>
+            </ul>
+            <div class="fig-row">
+              <figure class="fig">
+                <a href="../assets/img/rollcage/sketch-a.webp" data-zoom><img src="../assets/img/rollcage/sketch-a.webp" width="928" height="1135" alt="Hand sketch of the load path from the 15 kN front load" loading="lazy"></a>
+                <figcaption>Load-path sketch for the 15 kN front load</figcaption>
+              </figure>
+              <figure class="fig">
+                <a href="../assets/img/rollcage/sketch-b.webp" data-zoom><img src="../assets/img/rollcage/sketch-b.webp" width="961" height="1124" alt="Sketch showing a curved tube transferring force to the rear frame" loading="lazy"></a>
+                <figcaption>Curved center tube to carry force back to the rear frame</figcaption>
+              </figure>
+            </div>
+          </section>
+
+          <section id="fea">
+            <h2><span class="section__num">04</span>FEA</h2>
+            <p>I modeled the cage in SolidWorks and ran the FEA in Ansys Structural using a custom AISI 4130 material, created by editing the default structural steel properties. After mesh failures, the mesh error limits were changed from “aggressive mechanical” to “standard mechanical.”</p>
+            <p>We also simulated modified designs with different tube diameters. Each one scored worse on weight × deflection than the final design.</p>
+            <figure class="fig">
+              <a href="../assets/img/rollcage/fea.webp" data-zoom><img src="../assets/img/rollcage/fea.webp" width="800" height="627" alt="Ansys Structural results on the roll cage" loading="lazy"></a>
+              <figcaption>Ansys Structural results for the final design</figcaption>
+            </figure>
+          </section>
+
+          <section id="results">
+            <h2><span class="section__num">05</span>Results</h2>
+            <ul>
+              <li>Achieved a minimum safety factor of <strong>1.86</strong> under the 15 kN load.</li>
+              <li>Maximum deflection of only <strong>0.049 in</strong>, at a total weight of <strong>26.08 lb</strong>.</li>
+              <li>Presented the design and material selection research to the team’s mechanical engineering group.</li>
+            </ul>
+          </section>
+        </article>
+      </div>
+    </div>
+
+    <section class="gallery-section" id="gallery">
+      <div class="wrap">
+        <div class="section__head">
+          <span class="section__num">06</span>
+          <h2 class="section__title">Design review slides</h2>
+          <span class="section__rule" aria-hidden="true"></span>
+        </div>
+        <div class="gallery">
+          <figure><a href="../assets/img/rollcage/slide-parameters.webp" data-zoom><img class="fit" src="../assets/img/rollcage/slide-parameters.webp" width="1600" height="731" alt="Slide: design parameters, constraints, and assumptions" loading="lazy"></a><figcaption>Design parameters</figcaption></figure>
+          <figure><a href="../assets/img/rollcage/slide-structure.webp" data-zoom><img class="fit" src="../assets/img/rollcage/slide-structure.webp" width="1600" height="855" alt="Slide: structural design process" loading="lazy"></a><figcaption>Structural design process</figcaption></figure>
+          <figure><a href="../assets/img/rollcage/slide-material.webp" data-zoom><img class="fit" src="../assets/img/rollcage/slide-material.webp" width="1600" height="755" alt="Slide: mild steel vs chromoly material selection" loading="lazy"></a><figcaption>Material selection: AISI 1020 vs. AISI 4130</figcaption></figure>
+          <figure><a href="../assets/img/rollcage/slide-fea.webp" data-zoom><img class="fit" src="../assets/img/rollcage/slide-fea.webp" width="1600" height="819" alt="Slide: Ansys FEA setup and results" loading="lazy"></a><figcaption>Ansys FEA setup and results</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="pnext">
+      <div class="wrap">
+        <a href="smart-window.html">
+          <div><span class="label">Next project</span><strong>Autonomous Smart Window</strong></div>
+          <span class="card__go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <span>© <span data-year>2026</span> Josiah Lo</span>
+      <nav aria-label="Footer">
+        <a href="../assets/Josiah_Lo_Resume.pdf" target="_blank" rel="noopener">Résumé</a>
+        <a href="https://www.linkedin.com/in/josiahdavidlo" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:josiahlo@berkeley.edu">Email</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js" defer></script>
+</body>
+</html>

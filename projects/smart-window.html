@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Autonomous Smart Window — Josiah Lo</title>
+  <meta name="description" content="An autonomous smart window with motorized actuation, locking, and PDLC tint control, driven by temperature, smoke, and noise sensing, with three ESP32 microcontrollers programmed in Python.">
+  <link rel="canonical" href="https://josiahdlo.github.io/projects/smart-window.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Autonomous Smart Window — Josiah Lo">
+  <meta property="og:description" content="Mechanical design, custom circuitry, and embedded Python in one working prototype.">
+  <meta property="og:url" content="https://josiahdlo.github.io/projects/smart-window.html">
+  <meta property="og:image" content="https://josiahdlo.github.io/assets/img/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="nav">
+    <div class="wrap nav__inner">
+      <a class="brand" href="../index.html" aria-label="Josiah Lo — home">
+        <span class="brand__mark" aria-hidden="true">JL</span>
+        Josiah Lo
+      </a>
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+        <span class="nav__toggle-bars" aria-hidden="true"></span> Menu
+      </button>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="../index.html#experience">Experience</a></li>
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../index.html#skills">Skills</a></li>
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+        <li><a class="nav__resume" href="../assets/Josiah_Lo_Resume.pdf" target="_blank" rel="noopener">Résumé</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="phero">
+      <div class="wrap">
+        <a class="back" href="../index.html#projects">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 19l-7-7 7-7"/></svg>
+          All projects
+        </a>
+        <p class="phero__eyebrow label">UC Berkeley electronics project · Mechatronics · Embedded systems</p>
+        <h1 class="phero__title">Autonomous Smart Window</h1>
+        <p class="phero__lead">A working smart window prototype with motorized actuation, locking, and polymer-dispersed liquid crystal (PDLC) tint control, driven by temperature, smoke, and noise sensing. It runs on custom control circuitry and three ESP32 microcontrollers programmed in Python, and responds to its environment without user intervention.</p>
+        <dl class="meta">
+          <div><dt class="label">Context</dt><dd>UC Berkeley electronics project</dd></div>
+          <div><dt class="label">Timeline</dt><dd>Nov – Dec 2025</dd></div>
+          <div><dt class="label">Hardware</dt><dd>3× ESP32, sensors, motors, PDLC</dd></div>
+          <div><dt class="label">Tools</dt><dd>Python, SolidWorks, 3D printing</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <figure class="cover">
+        <a href="../assets/img/window/hero.webp" data-zoom><img src="../assets/img/window/hero.webp" width="1600" height="1200" alt="The smart window prototype with its electronics enclosures and handheld units"></a>
+        <figcaption class="label">The finished prototype</figcaption>
+      </figure>
+
+      <div class="results" style="--cols:3">
+        <div class="stat">
+          <span class="label">Controllers</span>
+          <div class="stat__num">3 <small>ESP32s</small></div>
+          <p class="stat__text">Sharing sensor data over Wi-Fi</p>
+        </div>
+        <div class="stat">
+          <span class="label">Sensing</span>
+          <div class="stat__num">3 <small>inputs</small></div>
+          <p class="stat__text">Temperature, smoke, and noise</p>
+        </div>
+        <div class="stat">
+          <span class="label">Actuation</span>
+          <div class="stat__num">3 <small>functions</small></div>
+          <p class="stat__text">Motorized window movement, locking, and PDLC tint</p>
+        </div>
+      </div>
+
+      <div class="pbody">
+        <nav class="toc" aria-label="On this page">
+          <span class="label">On this page</span>
+          <ol>
+            <li><a href="#goals">Goals</a></li>
+            <li><a href="#electronics">Electronics</a></li>
+            <li><a href="#software">Software</a></li>
+            <li><a href="#enclosures">Enclosures</a></li>
+            <li><a href="#results">Results</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+          </ol>
+        </nav>
+
+        <article class="prose">
+          <section id="goals">
+            <h2><span class="section__num">01</span>Goals</h2>
+            <ul>
+              <li>Design and build an autonomous smart window that integrates <strong>motorized actuation, locking, and PDLC tint control</strong>.</li>
+              <li>Add sensing for <strong>temperature, smoke, and noise</strong> to automate comfort, safety, and privacy.</li>
+              <li>Create custom control circuitry and enclosures for all the electronic components.</li>
+            </ul>
+          </section>
+
+          <section id="electronics">
+            <h2><span class="section__num">02</span>Electronics</h2>
+            <p>I designed the control circuitry to interface the ESP32 microcontrollers with the sensors, motors, and actuators, accounting for power distribution and signal requirements.</p>
+            <figure class="fig">
+              <a href="../assets/img/window/breadboard.webp" data-zoom><img src="../assets/img/window/breadboard.webp" width="1600" height="1191" alt="Breadboarded control circuitry with microcontroller and sensor boards" loading="lazy"></a>
+              <figcaption>Breadboarded control circuitry</figcaption>
+            </figure>
+          </section>
+
+          <section id="software">
+            <h2><span class="section__num">03</span>Software</h2>
+            <p>I programmed three microcontrollers in Python to run the system autonomously, including:</p>
+            <ul>
+              <li><strong>Wi-Fi communication</strong> between the boards</li>
+              <li><strong>Distributed sensor data sharing</strong> across the three controllers</li>
+              <li><strong>Closed-loop control logic</strong></li>
+            </ul>
+          </section>
+
+          <section id="enclosures">
+            <h2><span class="section__num">04</span>Enclosures</h2>
+            <p>I modeled housings for the microcontrollers, sensors, and actuators in SolidWorks and fabricated them with 3D printing, designing for fit, mounting, wiring clearance, and access to the components.</p>
+            <div class="fig-row">
+              <figure class="fig">
+                <a href="../assets/img/window/handheld-exploded.webp" data-zoom><img src="../assets/img/window/handheld-exploded.webp" width="693" height="682" alt="Exploded SolidWorks view of the handheld enclosure with joystick and display" loading="lazy"></a>
+                <figcaption>Handheld enclosure in SolidWorks, exploded</figcaption>
+              </figure>
+              <figure class="fig">
+                <a href="../assets/img/window/enclosure-exploded.webp" data-zoom><img src="../assets/img/window/enclosure-exploded.webp" width="661" height="731" alt="Exploded SolidWorks view of an electronics enclosure" loading="lazy"></a>
+                <figcaption>Electronics enclosure in SolidWorks, exploded</figcaption>
+              </figure>
+            </div>
+            <figure class="fig">
+              <a href="../assets/img/window/handheld.webp" data-zoom><img src="../assets/img/window/handheld.webp" width="1600" height="1200" alt="Printed handheld unit with joystick and OLED display, lid removed to show wiring" loading="lazy"></a>
+              <figcaption>Printed handheld unit with joystick and OLED display, lid off to show the wiring</figcaption>
+            </figure>
+          </section>
+
+          <section id="results">
+            <h2><span class="section__num">05</span>Results</h2>
+            <ul>
+              <li>Delivered a fully autonomous window system that responds to environmental inputs without user intervention.</li>
+              <li>Demonstrated end-to-end integration of mechanical design, electronics, and embedded software in a single functional prototype.</li>
+            </ul>
+          </section>
+        </article>
+      </div>
+    </div>
+
+    <section class="gallery-section" id="gallery">
+      <div class="wrap">
+        <div class="section__head">
+          <span class="section__num">06</span>
+          <h2 class="section__title">Gallery</h2>
+          <span class="section__rule" aria-hidden="true"></span>
+        </div>
+        <div class="gallery">
+          <figure><a href="../assets/img/window/front.webp" data-zoom><img src="../assets/img/window/front.webp" width="1600" height="1200" alt="Front view of the smart window prototype" loading="lazy"></a><figcaption>Front view of the prototype</figcaption></figure>
+          <figure><a href="../assets/img/window/handheld-cad.webp" data-zoom><img src="../assets/img/window/handheld-cad.webp" width="868" height="737" alt="SolidWorks model of the assembled handheld unit" loading="lazy"></a><figcaption>Handheld unit, assembled CAD</figcaption></figure>
+          <figure><a href="../assets/img/window/enclosure.webp" data-zoom><img src="../assets/img/window/enclosure.webp" width="796" height="719" alt="SolidWorks model of the assembled electronics enclosure" loading="lazy"></a><figcaption>Electronics enclosure, assembled CAD</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="pnext">
+      <div class="wrap">
+        <a href="sponge-press.html">
+          <div><span class="label">Next project</span><strong>Lever-Actuated Sponge Press</strong></div>
+          <span class="card__go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <span>© <span data-year>2026</span> Josiah Lo</span>
+      <nav aria-label="Footer">
+        <a href="../assets/Josiah_Lo_Resume.pdf" target="_blank" rel="noopener">Résumé</a>
+        <a href="https://www.linkedin.com/in/josiahdavidlo" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:josiahlo@berkeley.edu">Email</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js" defer></script>
+</body>
+</html>
