@@ -565,6 +565,68 @@ p { margin: 0 0 1em; }
   .job { grid-template-columns: 1fr; gap: 30px; padding: 26px 22px; }
 }
 
+/* Public hardware images under the experience card */
+.hw {
+  margin-top: 20px;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+.hw__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 20px;
+  margin-bottom: 18px;
+}
+.hw__head p { margin: 0; color: var(--ink-2); font-size: 0.95rem; }
+.hw__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+.hw figure { margin: 0; }
+.hw figure a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  cursor: zoom-in;
+}
+.hw img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 200px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.hw a:hover img { transform: translateY(-2px); box-shadow: 0 16px 30px -18px rgba(16, 19, 24, 0.35); }
+.hw figcaption { margin-top: 10px; font-size: 0.8rem; line-height: 1.45; color: var(--muted); }
+.hw figcaption b { display: block; margin-bottom: 2px; color: var(--ink); font-size: 0.88rem; font-weight: 600; }
+.hw__src {
+  margin: 18px 0 0;
+  padding-top: 14px;
+  border-top: 1px dashed var(--line-2);
+  font-size: 0.76rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.hw__src a { color: var(--ink-2); }
+@media (max-width: 920px) {
+  .hw__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 520px) {
+  .hw figure a { height: 150px; }
+  .hw img { max-height: 150px; }
+}
+@media (max-width: 420px) {
+  .hw { padding: 18px; }
+}
+
 /* ---------- Project cards ---------- */
 
 .projects {
