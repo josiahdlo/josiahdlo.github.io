@@ -63,7 +63,7 @@
           <p class="hero__role label">Mechanical Engineering · UC Berkeley · B.S. May 2027</p>
           <p class="hero__lead">I design, analyze, and build mechanical systems.</p>
           <ul class="hero__now">
-            <li><span class="label">Now</span><span><strong>Mechanical Engineer</strong>, EMCORE — Quartz MEMS Division</span></li>
+            <li><span class="label">Now</span><span><strong>Mechanical Engineer Intern</strong>, EMCORE — Quartz MEMS Division</span></li>
             <li><span class="label">Team</span><span><strong>Project Lead</strong>, UC Berkeley Solar Vehicle Team</span></li>
             <li><span class="label">Focus</span><span>Mechanical design · FEA · Mechatronics</span></li>
           </ul>
@@ -105,8 +105,8 @@
         <div class="stats">
           <div class="stat">
             <span class="label">EMCORE</span>
-            <div class="stat__num">&gt;$1M</div>
-            <p class="stat__text">Sales opportunity created by analyzing test history of ~1,000 scrapped accelerometers</p>
+            <div class="stat__num">$716K</div>
+            <p class="stat__text">IMU sales enabled by analyzing test history of ~2,000 scrapped sensors</p>
           </div>
           <div class="stat">
             <span class="label">Solar vehicle</span>
@@ -116,7 +116,7 @@
           <div class="stat">
             <span class="label">EMCORE</span>
             <div class="stat__num">77%</div>
-            <p class="stat__text">Of moisture-contaminated units recovered through rework, preserving $147K in shipped revenue</p>
+            <p class="stat__text">Of moisture-contaminated accelerometers recovered through rework, preserving $147K in shipped revenue</p>
           </div>
           <div class="stat">
             <span class="label">EMCORE</span>
@@ -141,12 +141,12 @@
           <div class="job__meta">
             <h3 class="job__company">EMCORE Corporation</h3>
             <p class="job__division">Quartz MEMS Division</p>
-            <span class="job__role">Mechanical Engineer</span>
+            <span class="job__role">Mechanical Engineer Intern</span>
             <p class="job__dates label">Jan 2026 – Present</p>
             <div class="kpis">
-              <div class="kpi"><b>~1,000</b><span>scrapped units analyzed</span></div>
-              <div class="kpi"><b>179</b><span>sensors in root-cause study</span></div>
-              <div class="kpi"><b>$6,935</b><span>parts cost saved</span></div>
+              <div class="kpi"><b>~2,000</b><span>scrapped sensors analyzed</span></div>
+              <div class="kpi"><b>179</b><span>units in root-cause study</span></div>
+              <div class="kpi"><b>$7K</b><span>parts cost saved</span></div>
               <div class="kpi"><b>$147K</b><span>shipped revenue preserved</span></div>
             </div>
             <p class="job__note">Company work is described without proprietary detail. Hardware images below are from public EMCORE sources.</p>
@@ -154,24 +154,28 @@
           <div class="job__body">
             <ul class="ticks">
               <li>
-                <h4>Found sellable inventory in scrapped units</h4>
-                Wrote a Python script to analyze test history across ~1,000 scrapped accelerometers and identified <strong>276 units (~$100K in parts)</strong> that met a new customer’s specifications. The same script let my team identify <strong>375 more viable gyroscopes (~$230K)</strong>, creating an opportunity for <strong>over $1M</strong> in inertial unit sales.
-              </li>
-              <li>
-                <h4>Confirmed the root cause of accelerometer yield failures</h4>
-                Pulled SQL test data across 179 sensors and built a MATLAB pipeline that isolated a discrete <strong>−15 °C frequency anomaly in 50 units</strong>. Used Ansys structural-modal FEA to show that moisture/frost contamination could reproduce the observed frequency shift, then sent dozens of units for mass spectroscopy testing to verify the hypothesis.
-              </li>
-              <li>
-                <h4>Recovered contaminated units through rework</h4>
-                Identified which units should go through a rework process (drill, vacuum-bake, reseal) that recovered <strong>77% of moisture-contaminated units</strong>, saving $6,935 in parts cost and preserving <strong>$147K in shipped IMU revenue</strong>.
+                <h4>Enabled $716K in IMU sales from scrapped inventory</h4>
+                Developed a Python script to rapidly analyze test history across ~2,000 scrapped sensors, identifying <strong>276 viable accelerometers and 375 gyroscopes ($330K in parts)</strong> validated against a customer’s new 30+ test specifications, which enabled <strong>$716K in inertial measurement unit sales</strong>.
               </li>
               <li>
                 <h4>Evaluated new die package designs with FEA</h4>
-                Designed and ran a <strong>40-simulation study of 8 die package designs</strong> for the core accelerometer, using coupled thermal, structural, modal, and vibration simulations in Ansys Mechanical to compare sensor performance and survivability. The study prompted a <strong>pilot production run</strong> of the best simulated design.
+                Designed and executed a <strong>40-simulation FEA study of 8 die package designs</strong> for the MEMS accelerometer, using coupled thermal-structural-modal-vibration simulations to compare performance under package stress, thermal load, and vibration. The best simulated design advanced to a <strong>pilot production run</strong>.
+              </li>
+              <li>
+                <h4>Traced accelerometer yield failures to moisture contamination</h4>
+                Isolated a discrete <strong>−15 °C frequency shift in 50 of 179 units</strong> with a MATLAB data pipeline, reproduced the observed frequency shift of the quartz resonator with structural-modal FEA in Ansys, and verified moisture contamination in the hermetic sealing process via mass spectroscopy.
+              </li>
+              <li>
+                <h4>Recovered contaminated units through rework</h4>
+                Selected units for a rework process (drill, vacuum-bake, reseal) that recovered <strong>77% of moisture-contaminated accelerometers</strong>, saving $7K in parts cost and preserving <strong>$147K in shipped IMU revenue</strong>.
+              </li>
+              <li>
+                <h4>Validated an IMU for Lockheed Martin Space qualification</h4>
+                Validated the IMU against <strong>Lockheed Martin Space delta qualification shock and vibration profiles</strong> using Ansys shock-response-spectrum and vibration simulations, and compiled the technical report for customer verification.
               </li>
             </ul>
             <ul class="tags" aria-label="Tools used">
-              <li>Python</li><li>SQL</li><li>MATLAB</li><li>Ansys Mechanical</li><li>Modal &amp; vibration FEA</li><li>Root-cause analysis</li>
+              <li>Python</li><li>MATLAB</li><li>Ansys Mechanical</li><li>Modal &amp; vibration FEA</li><li>Shock response spectrum</li><li>Root-cause analysis</li>
             </ul>
           </div>
         </article>
@@ -224,7 +228,7 @@
             <div class="card__body">
               <div class="card__meta"><span class="label">Solar Vehicle · Composites · FEA</span></div>
               <h3 class="card__title">Composite Suspension Box</h3>
-              <p class="card__text">Verified and redesigned a laminate-composite suspension box for UC Berkeley’s 11th-generation solar vehicle.</p>
+              <p class="card__text">Verified and redesigned a laminate-composite suspension box for UC Berkeley’s 11th-generation solar vehicle, and led the team’s design and manufacturing effort.</p>
               <span class="card__metric">Safety factor 0.09 → 1.03 · +8.9% weight</span>
               <div class="card__foot">
                 <ul class="tags"><li>Ansys ACP</li><li>Ansys Structural</li><li>SolidWorks</li></ul>
@@ -346,7 +350,7 @@
           <div class="skill">
             <h3>Simulation &amp; Analysis</h3>
             <ul>
-              <li>Ansys Mechanical<span>Structural, thermal, modal, vibration</span></li>
+              <li>Ansys Mechanical<span>Structural, thermal, modal, vibration, shock response spectrum</span></li>
               <li>Ansys Composite PrepPost (ACP)</li>
               <li>Material selection<span>Ashby charts</span></li>
             </ul>
@@ -365,7 +369,6 @@
             <ul>
               <li>Python<span>Data analysis, embedded control</span></li>
               <li>MATLAB</li>
-              <li>SQL</li>
             </ul>
           </div>
           <div class="skill">
@@ -398,8 +401,8 @@
         <div class="about reveal">
           <p class="about__lead">My work spans <span>structural analysis and mechanism design</span>.</p>
           <div class="about__body">
-            <p>I’m a mechanical engineering student at UC Berkeley, graduating in May 2027 with a 4.000 GPA. Since January 2026 I’ve worked as a mechanical engineer in EMCORE’s Quartz MEMS division, where I use test-data analysis and Ansys FEA to design and optimize quartz MEMS accelerometers and gyroscopes.</p>
-            <p>Outside of work, I’m a project lead on UC Berkeley’s solar vehicle team, where I’ve analyzed and redesigned chassis structures. I also build my own projects, including a 3D-printed six-axis robot arm with a custom cycloidal gearbox.</p>
+            <p>I’m a mechanical engineering student at UC Berkeley, graduating in May 2027 with a 4.000 GPA. Since January 2026 I’ve worked as a Mechanical Engineer Intern in EMCORE’s Quartz MEMS division, where I use test-data analysis and Ansys FEA to design and optimize quartz MEMS accelerometers and gyroscopes.</p>
+            <p>Outside of work, I’m a project lead on UC Berkeley’s solar vehicle team, where I’ve led design and manufacturing for the suspension box team. I also build my own projects, including a 3D-printed six-axis robot arm with a custom cycloidal gearbox.</p>
           </div>
         </div>
       </div>
