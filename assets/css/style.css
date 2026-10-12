@@ -456,12 +456,6 @@ p { margin: 0 0 1em; }
   gap: 16px;
   margin-bottom: 14px;
 }
-.section__num {
-  font-family: var(--font-body);
-  font-size: 0.8rem;
-  font-weight: 600;
-  color: var(--accent-ink);
-}
 .section__title { font-size: clamp(2rem, 4.2vw, 2.9rem); letter-spacing: -0.035em; }
 .section__rule { flex: 1; height: 1px; background: var(--line-2); align-self: center; }
 .section__intro {
@@ -1023,7 +1017,6 @@ p { margin: 0 0 1em; }
 .prose { max-width: 740px; }
 .prose > section + section { margin-top: 64px; }
 .prose h2 { margin-bottom: 18px; font-size: clamp(1.6rem, 3vw, 2rem); letter-spacing: -0.03em; }
-.prose h2 .section__num { display: block; margin-bottom: 8px; }
 .prose h3 { margin: 30px 0 10px; font-size: 1.18rem; letter-spacing: -0.015em; }
 .prose p, .prose li { color: var(--ink-2); }
 .prose ul { margin: 0 0 1em; padding-left: 1.15em; }

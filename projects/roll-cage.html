@@ -105,7 +105,7 @@
 
         <article class="prose">
           <section id="brief">
-            <h2><span class="section__num">01</span>Design brief</h2>
+            <h2>Design brief</h2>
             <dl class="brief">
               <div><dt>Objective</dt><dd>Minimize the product of maximum deflection and weight, keeping weight down and stiffness up.</dd></div>
               <div><dt>Constraints</dt><dd><ul><li>Safety factor of at least 1</li><li>Material must be metal (American Solar Challenge regulations)</li><li>The occupant’s head space must not be impeded</li></ul></dd></div>
@@ -114,7 +114,7 @@
           </section>
 
           <section id="material">
-            <h2><span class="section__num">02</span>Material selection</h2>
+            <h2>Material selection</h2>
             <p>I used Ashby charts to compare aluminum, titanium, nickel, and steel alloys on Young’s modulus-to-density ratio, yield strength, and fracture toughness. Steels offered some of the highest fracture toughness and yield strengths, a high modulus-to-density ratio, and reasonable cost and manufacturability.</p>
             <p>Between the two most common roll cage steels, mild steel (AISI 1020) and chromoly (AISI 4130), the densities are nearly identical, but chromoly has a higher yield strength and Young’s modulus. Mild steel is cheaper, but <strong>AISI 4130</strong> allowed for minimal weight and deflection while staying affordable, so it became the material choice.</p>
             <figure class="fig">
@@ -124,7 +124,7 @@
           </section>
 
           <section id="structure">
-            <h2><span class="section__num">03</span>Structural design</h2>
+            <h2>Structural design</h2>
             <p>The goal was to support the 15 kN front load without failure and with minimal deflection, adding as little weight as possible.</p>
             <ul>
               <li><strong>Diagonal tubes</strong> (1.25 in × 0.12 in) direct stress into the side struts.</li>
@@ -145,7 +145,7 @@
           </section>
 
           <section id="fea">
-            <h2><span class="section__num">04</span>FEA</h2>
+            <h2>FEA</h2>
             <p>I modeled the cage in SolidWorks and ran the FEA in Ansys Structural using a custom AISI 4130 material, created by editing the default structural steel properties. After mesh failures, the mesh error limits were changed from “aggressive mechanical” to “standard mechanical.”</p>
             <p>We also simulated modified designs with different tube diameters. Each one scored worse on weight × deflection than the final design.</p>
             <figure class="fig">
@@ -155,7 +155,7 @@
           </section>
 
           <section id="results">
-            <h2><span class="section__num">05</span>Results</h2>
+            <h2>Results</h2>
             <ul>
               <li>Achieved a minimum safety factor of <strong>1.86</strong> under the 15 kN load.</li>
               <li>Maximum deflection of only <strong>0.049 in</strong>, at a total weight of <strong>26.08 lb</strong>.</li>
@@ -169,7 +169,6 @@
     <section class="gallery-section" id="gallery">
       <div class="wrap">
         <div class="section__head">
-          <span class="section__num">06</span>
           <h2 class="section__title">Design review slides</h2>
           <span class="section__rule" aria-hidden="true"></span>
         </div>
