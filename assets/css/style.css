@@ -1194,6 +1194,28 @@ p { margin: 0 0 1em; }
 .pnext .card__go { width: 48px; height: 48px; }
 .pnext a:hover .card__go { background: var(--accent); border-color: var(--accent); color: #fff; }
 
+/* ---------- Toast (e.g. "Email address copied") ---------- */
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 24px;
+  z-index: 200;
+  max-width: calc(100vw - 32px);
+  padding: 11px 18px;
+  border-radius: 10px;
+  background: var(--ink);
+  color: #fff;
+  font-size: 0.92rem;
+  font-weight: 500;
+  box-shadow: 0 14px 34px -14px rgba(16, 19, 24, 0.5);
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 10px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+.toast.is-visible { opacity: 1; transform: translate(-50%, 0); }
+
 /* ---------- Lightbox ---------- */
 
 .lightbox {
