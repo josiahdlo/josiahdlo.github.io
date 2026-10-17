@@ -260,6 +260,55 @@ p { margin: 0 0 1em; }
   overflow: hidden;
   border-bottom: 1px solid var(--line);
 }
+/* On desktop the hero fills one screen, with a scroll cue at the bottom */
+@media (min-width: 921px) {
+  .hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: calc(100vh - var(--nav-h));
+    min-height: calc(100svh - var(--nav-h));
+    padding-bottom: 104px;
+  }
+  .hero > .wrap { width: 100%; }
+}
+.scroll-cue {
+  position: absolute;
+  left: 50%;
+  bottom: 26px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  transform: translateX(-50%);
+  color: var(--muted);
+  text-decoration: none;
+  transition: opacity 0.3s ease, color 0.15s ease;
+}
+.scroll-cue:hover { color: var(--ink); }
+.scroll-cue .label { color: inherit; }
+.scroll-cue__icon {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--line-2);
+  border-radius: 50%;
+  background: var(--surface);
+  box-shadow: 0 1px 2px rgba(16, 19, 24, 0.05);
+  animation: cue-bob 2.2s ease-in-out infinite;
+}
+.scroll-cue:hover .scroll-cue__icon { border-color: var(--accent); color: var(--accent-ink); }
+.scroll-cue__icon svg { width: 16px; height: 16px; }
+.scroll-cue.is-hidden { opacity: 0; pointer-events: none; }
+@keyframes cue-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(5px); }
+}
+@media (max-width: 920px) {
+  .scroll-cue { display: none; }
+}
 .hero::before {
   content: "";
   position: absolute;

@@ -23,6 +23,14 @@
     window.addEventListener("scroll", onScroll, { passive: true });
   }
 
+  // ---- Scroll cue: fade out once the visitor starts scrolling ----
+  var cue = document.querySelector(".scroll-cue");
+  if (cue) {
+    var onCue = function () { cue.classList.toggle("is-hidden", window.scrollY > 60); };
+    onCue();
+    window.addEventListener("scroll", onCue, { passive: true });
+  }
+
   // ---- Footer year ----
   document.querySelectorAll("[data-year]").forEach(function (el) {
     el.textContent = new Date().getFullYear();
