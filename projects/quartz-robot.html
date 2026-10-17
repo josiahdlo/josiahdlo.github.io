@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Quartz Manipulation Robot — Josiah Lo</title>
+  <meta name="description" content="In-progress Lam Research–sponsored senior design project: a 3-axis SCARA-style pick-and-place robot with an automatic vacuum cup selector for handling high-finish quartz components.">
+  <link rel="canonical" href="https://josiahdlo.github.io/projects/quartz-robot.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Quartz Manipulation Robot — Josiah Lo">
+  <meta property="og:description" content="A 3-axis SCARA-style pick-and-place robot with a gear-driven rotary vacuum valve that selects 1 of 4 cup sizes. Lam Research–sponsored senior design, in progress.">
+  <meta property="og:url" content="https://josiahdlo.github.io/projects/quartz-robot.html">
+  <meta property="og:image" content="https://josiahdlo.github.io/assets/img/og.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="nav">
+    <div class="wrap nav__inner">
+      <a class="brand" href="../index.html" aria-label="Josiah Lo — home">
+        <span class="brand__mark" aria-hidden="true">JL</span>
+        Josiah Lo
+      </a>
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+        <span class="nav__toggle-bars" aria-hidden="true"></span> Menu
+      </button>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="../index.html#experience">Experience</a></li>
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../index.html#skills">Skills</a></li>
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+        <li><a class="nav__resume" href="../assets/Josiah_Lo_Resume.pdf" target="_blank" rel="noopener">Résumé</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="phero">
+      <div class="wrap">
+        <a class="back" href="../index.html#projects">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 19l-7-7 7-7"/></svg>
+          All projects
+        </a>
+        <p class="phero__eyebrow"><span class="pill">In progress</span> <span class="label">Lam Research–sponsored senior design · Robotics · Vacuum handling</span></p>
+        <h1 class="phero__title">Quartz Manipulation Robot</h1>
+        <p class="phero__lead">A 3-axis SCARA-style pick-and-place robot with an automatic vacuum cup selector, for handling high-finish quartz components during semiconductor equipment assembly. Our team of four is designing it for Lam Research in UC Berkeley’s industry-sponsored senior design course. I designed the gear-driven rotary vacuum valve that selects the cup.</p>
+        <dl class="meta">
+          <div><dt class="label">My role</dt><dd>Rotary vacuum valve (cup selector) design</dd></div>
+          <div><dt class="label">Team</dt><dd>4 students</dd></div>
+          <div><dt class="label">Sponsor</dt><dd>Lam Research</dd></div>
+          <div><dt class="label">Timeline</dt><dd>Aug 2026 – Present</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <figure class="cover cover--render">
+        <a href="../assets/img/lamq/robot-render.webp" data-zoom><img src="../assets/img/lamq/robot-render.webp" width="994" height="1126" alt="SolidWorks render of the quartz manipulation robot: base, vertical lead-screw axis, arm, and vacuum cup selector"></a>
+        <figcaption class="label">Full robot assembly at the preliminary design review (SolidWorks)</figcaption>
+      </figure>
+
+      <div class="results" style="--cols:4">
+        <div class="stat">
+          <span class="label">Axes</span>
+          <div class="stat__num">3</div>
+          <p class="stat__text">Base rotation, a vertical lead-screw axis, and a motor-driven arm link</p>
+        </div>
+        <div class="stat">
+          <span class="label">Vacuum</span>
+          <div class="stat__num">−80 <small>kPa</small></div>
+          <p class="stat__text">Pulled by a diaphragm pump in the base</p>
+        </div>
+        <div class="stat">
+          <span class="label">Cup selector</span>
+          <div class="stat__num">4 <small>sizes</small></div>
+          <p class="stat__text">Rotary valve routes vacuum to 1 of 4 cup sizes based on part weight</p>
+        </div>
+        <div class="stat">
+          <span class="label">Budget</span>
+          <div class="stat__num">$500</div>
+          <p class="stat__text">Total team budget set by the project brief</p>
+        </div>
+      </div>
+
+      <div class="pbody">
+        <nav class="toc" aria-label="On this page">
+          <span class="label">On this page</span>
+          <ol>
+            <li><a href="#brief">The challenge</a></li>
+            <li><a href="#system">System design</a></li>
+            <li><a href="#valve">Rotary vacuum valve</a></li>
+            <li><a href="#next">What’s next</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+          </ol>
+        </nav>
+
+        <article class="prose">
+          <div class="callout"><p><strong>In progress.</strong> This page covers the design through our preliminary design review in October 2026. I’ll update it as we build and test the robot.</p></div>
+
+          <section id="brief">
+            <h2>The challenge</h2>
+            <p>Assembling semiconductor equipment involves handling quartz components with a very high surface finish. Lam Research asked our team to pick and place these parts with small vacuum cups, and to have the robot choose the right cup for each part on its own.</p>
+            <dl class="brief">
+              <div><dt>Objective</dt><dd>Pick and place quartz components of varying sizes with surface roughness of Ra 4 and 8 µin, using a robotic rig fitted with small vacuum cups.</dd></div>
+              <div><dt>Requirements</dt><dd><ul><li>Predict the lifting capability (weight) of each nozzle size</li><li>Determine the highest allowable load per mm² of nozzle opening with a factor of safety of 2, for commercially available cups under 2 mm in diameter</li><li>Automatically select the cup size from the component’s weight: smaller parts get a smaller cup, bigger parts a bigger one</li></ul></dd></div>
+              <div><dt>Constraints</dt><dd><ul><li>$500 team budget</li><li>Final oral presentation to Lam Research representatives</li></ul></dd></div>
+            </dl>
+          </section>
+
+          <section id="system">
+            <h2>System design</h2>
+            <p>The team split the robot into three main assemblies: the base, the vertical axis and arm, and the vacuum cup selector at the end of the arm.</p>
+
+            <h3>Base</h3>
+            <p>A NEMA 17 stepper motor with a custom cycloidal drive rotates the robot about its vertical axis, and a diaphragm pump pulls −80 kPa for the vacuum system. A 6819ZZ deep-groove ball bearing press-fits into the base cap, with a flanged lip below so it can’t fall through.</p>
+            <div class="fig-row">
+              <figure class="fig">
+                <a href="../assets/img/lamq/base-top.webp" data-zoom><img src="../assets/img/lamq/base-top.webp" width="1154" height="1016" alt="Annotated CAD of the base: bearing for base rotation, slot for pump tubes, ribs to hold the vertical-axis plate, and air slots" loading="lazy"></a>
+                <figcaption>Base exterior, marked up for the design review</figcaption>
+              </figure>
+              <figure class="fig">
+                <a href="../assets/img/lamq/base-inside.webp" data-zoom><img src="../assets/img/lamq/base-inside.webp" width="1338" height="1240" alt="Annotated CAD of the base interior: diaphragm pump, cycloidal drive, NEMA 17 motor, and breadboards" loading="lazy"></a>
+                <figcaption>Inside the base: diaphragm pump, cycloidal drive, and NEMA 17</figcaption>
+              </figure>
+            </div>
+
+            <h3>Vertical axis and arm</h3>
+            <p>A motor-driven lead screw raises and lowers the arm assembly, guided by two linear rails and four carriages to resist tilting. Motor-driven arm links position the cup selector horizontally to reach each part. Bearing-to-shaft connections use transition or light interference fits to limit slipping, while couplings and hub collars use clearance fits secured by clamps.</p>
+            <figure class="fig">
+              <a href="../assets/img/lamq/arm-labeled.webp" data-zoom><img src="../assets/img/lamq/arm-labeled.webp" width="841" height="572" alt="Labeled CAD of the vertical axis and arm: motor, shaft coupling, lead screw, linear rail, carriage, arm housing, rotary shaft, bearings, and arm link" loading="lazy"></a>
+              <figcaption>Vertical axis and arm, with the main components labeled</figcaption>
+            </figure>
+          </section>
+
+          <section id="valve">
+            <h2>Rotary vacuum valve</h2>
+            <p>My part of the robot is the cup selector: a <strong>gear-driven rotary vacuum valve</strong> that routes <strong>−80 kPa</strong> from the pump to <strong>1 of 4 cup sizes</strong> based on the weight of the part being picked up.</p>
+            <p>A small DC gearmotor turns the valve through a <strong>12-tooth pinion and a 36-tooth gear</strong> (module 1, a 3:1 reduction). Rotating the valve sends vacuum to one outlet at a time, so only the cup size chosen for that part pulls on it.</p>
+            <figure class="fig">
+              <a href="../assets/img/lamq/valve-v14.webp" data-zoom><img src="../assets/img/lamq/valve-v14.webp" width="643" height="596" alt="SolidWorks model of the rotary vacuum valve with gear drive, DC gearmotor, and outlet splitters" loading="lazy"></a>
+              <figcaption>Rotary valve, version 1.4 (October 2026)</figcaption>
+            </figure>
+
+            <h3>Iterating on the design</h3>
+            <p>I took the valve assembly through six versions in SolidWorks between late September and mid-October 2026. The early versions worked out the gear drive and a bracket to mount the motor; later versions added splitters at the outlets.</p>
+            <div class="fig-row">
+              <figure class="fig">
+                <a href="../assets/img/lamq/valve-v1.webp" data-zoom><img src="../assets/img/lamq/valve-v1.webp" width="887" height="754" alt="Early version of the valve with the motor bracket and gear drive" loading="lazy"></a>
+                <figcaption>Early version with the motor bracket and gear drive (September 2026)</figcaption>
+              </figure>
+              <figure class="fig">
+                <a href="../assets/img/lamq/valve-v1-section.webp" data-zoom><img src="../assets/img/lamq/valve-v1-section.webp" width="1031" height="620" alt="Section view of the early valve showing the internal vacuum passage" loading="lazy"></a>
+                <figcaption>Section view of the internal vacuum passage</figcaption>
+              </figure>
+            </div>
+            <div class="fig-row">
+              <figure class="fig">
+                <a href="../assets/img/lamq/valve-v14-xsec.webp" data-zoom><img src="../assets/img/lamq/valve-v14-xsec.webp" width="726" height="727" alt="Cross-section through the four valve outlets of version 1.4" loading="lazy"></a>
+                <figcaption>Cross-section through the four outlets (v1.4)</figcaption>
+              </figure>
+              <figure class="fig">
+                <a href="../assets/img/lamq/valve-v14-section.webp" data-zoom><img src="../assets/img/lamq/valve-v14-section.webp" width="766" height="634" alt="Lengthwise section of version 1.4 of the valve" loading="lazy"></a>
+                <figcaption>Lengthwise section (v1.4)</figcaption>
+              </figure>
+            </div>
+          </section>
+
+          <section id="next">
+            <h2>What’s next</h2>
+            <p>The remaining goals from the project brief:</p>
+            <ul>
+              <li>Predict the lifting capability of each nozzle size, and the highest allowable load per mm² of nozzle opening at a factor of safety of 2.</li>
+              <li>Build the robot and demonstrate automatic cup selection based on each component’s weight.</li>
+              <li>Present the final design to Lam Research representatives at the end of the semester.</li>
+            </ul>
+          </section>
+        </article>
+      </div>
+    </div>
+
+    <section class="gallery-section" id="gallery">
+      <div class="wrap">
+        <div class="section__head">
+          <h2 class="section__title">Gallery</h2>
+          <span class="section__rule" aria-hidden="true"></span>
+        </div>
+        <div class="gallery">
+          <figure><a href="../assets/img/lamq/valve-concept.webp" data-zoom><img src="../assets/img/lamq/valve-concept.webp" width="652" height="572" alt="Early valve concept sketching the drive gear around the valve body" loading="lazy"></a><figcaption>Early concept, sizing the gear around the valve body</figcaption></figure>
+          <figure><a href="../assets/img/lamq/valve-bracket.webp" data-zoom><img src="../assets/img/lamq/valve-bracket.webp" width="580" height="443" alt="Valve with a motor bracket iteration" loading="lazy"></a><figcaption>Motor bracket iteration</figcaption></figure>
+          <figure><a href="../assets/img/lamq/valve-v1-end.webp" data-zoom><img src="../assets/img/lamq/valve-v1-end.webp" width="718" height="810" alt="End view of the valve showing the pinion, gear, and internal passages" loading="lazy"></a><figcaption>End view of the pinion and gear</figcaption></figure>
+          <figure><a href="../assets/img/lamq/valve-splitter-trial.webp" data-zoom><img src="../assets/img/lamq/valve-splitter-trial.webp" width="774" height="515" alt="Valve version with a single splitter fitted" loading="lazy"></a><figcaption>First splitter fitted to an outlet (October 2026)</figcaption></figure>
+          <figure><a href="../assets/img/lamq/valve-v14-front.webp" data-zoom><img src="../assets/img/lamq/valve-v14-front.webp" width="509" height="504" alt="Front view of valve version 1.4" loading="lazy"></a><figcaption>Version 1.4, front view</figcaption></figure>
+          <figure><a href="../assets/img/lamq/valve-v14-side.webp" data-zoom><img src="../assets/img/lamq/valve-v14-side.webp" width="682" height="544" alt="Side view of valve version 1.4 with the gear drive" loading="lazy"></a><figcaption>Version 1.4, side view with the gear drive</figcaption></figure>
+          <figure><a href="../assets/img/lamq/arm-render.webp" data-zoom><img src="../assets/img/lamq/arm-render.webp" width="578" height="622" alt="Render of the vertical axis and arm assembly" loading="lazy"></a><figcaption>Vertical axis and arm assembly</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="pnext">
+      <div class="wrap">
+        <a href="suspension-box.html">
+          <div><span class="label">Next project</span><strong>Composite Suspension Box</strong></div>
+          <span class="card__go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <span>© <span data-year>2026</span> Josiah Lo</span>
+      <nav aria-label="Footer">
+        <a href="../assets/Josiah_Lo_Resume.pdf" target="_blank" rel="noopener">Résumé</a>
+        <a href="https://www.linkedin.com/in/josiahdavidlo" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:josiahlo@berkeley.edu">Email</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js" defer></script>
+</body>
+</html>
