@@ -62,9 +62,9 @@
     </section>
 
     <div class="wrap">
-      <figure class="cover cover--render">
-        <a href="../assets/img/lamq/robot-render.webp" data-zoom><img src="../assets/img/lamq/robot-render.webp" width="994" height="1126" alt="SolidWorks render of the quartz manipulation robot: base, vertical lead-screw axis, arm, and vacuum cup selector"></a>
-        <figcaption class="label">Full robot assembly at the preliminary design review (SolidWorks)</figcaption>
+      <figure class="cover cover--cad">
+        <a href="../assets/img/lamq/v4-assembly.webp" data-zoom><img src="../assets/img/lamq/v4-assembly.webp" width="765" height="775" alt="Near-final SolidWorks assembly of the quartz manipulation robot: base, vertical lead-screw axis, arm, and the vacuum cup selector with its vacuum lines"></a>
+        <figcaption class="label">Near-final CAD of the full robot (November 2026)</figcaption>
       </figure>
 
       <div class="results" style="--cols:4">
@@ -97,13 +97,14 @@
             <li><a href="#brief">The challenge</a></li>
             <li><a href="#system">System design</a></li>
             <li><a href="#selector">Vacuum cup selector</a></li>
+            <li><a href="#progress">Design progress</a></li>
             <li><a href="#next">What’s next</a></li>
             <li><a href="#gallery">Gallery</a></li>
           </ol>
         </nav>
 
         <article class="prose">
-          <div class="callout"><p><strong>In progress.</strong> This page covers the design so far (October 2026). I’ll update it as we build and test the robot.</p></div>
+          <div class="callout"><p><strong>In progress.</strong> This page shows our near-final CAD (November 2026). I’ll update it as we build and test the robot.</p></div>
 
           <section id="brief">
             <h2>The challenge</h2>
@@ -123,61 +124,64 @@
             <p>A NEMA 17 stepper motor with a custom cycloidal drive rotates the robot about its vertical axis, and a diaphragm pump pulls −80 kPa for the vacuum system. A 6819ZZ deep-groove ball bearing press-fits into the base cap, with a flanged lip below so it can’t fall through.</p>
             <div class="fig-row">
               <figure class="fig">
-                <a href="../assets/img/lamq/base-top.webp" data-zoom><img src="../assets/img/lamq/base-top.webp" width="1154" height="1016" alt="Annotated CAD of the base: bearing for base rotation, slot for pump tubes, ribs to hold the vertical-axis plate, and air slots" loading="lazy"></a>
-                <figcaption>Base exterior, marked up for the design review</figcaption>
+                <a href="../assets/img/lamq/v4-side.webp" data-zoom><img src="../assets/img/lamq/v4-side.webp" width="963" height="816" alt="Side view of the robot with vacuum lines running from the base along the arm to the cup selector" loading="lazy"></a>
+                <figcaption>Side view: vacuum lines run from the base along the arm to the cup selector</figcaption>
               </figure>
               <figure class="fig">
-                <a href="../assets/img/lamq/base-inside.webp" data-zoom><img src="../assets/img/lamq/base-inside.webp" width="1338" height="1240" alt="Annotated CAD of the base interior: diaphragm pump, cycloidal drive, NEMA 17 motor, and breadboards" loading="lazy"></a>
-                <figcaption>Inside the base: diaphragm pump, cycloidal drive, and NEMA 17</figcaption>
+                <a href="../assets/img/lamq/v4-cal.webp" data-zoom><img src="../assets/img/lamq/v4-cal.webp" width="709" height="770" alt="Front of the robot base with the vertical lead-screw axis" loading="lazy"></a>
+                <figcaption>Front of the base, with the vertical lead-screw axis</figcaption>
               </figure>
             </div>
 
             <h3>Vertical axis and arm</h3>
             <p>A motor-driven lead screw raises and lowers the arm assembly, guided by two linear rails and four carriages to resist tilting. Motor-driven arm links position the cup selector horizontally to reach each part. Bearing-to-shaft connections use transition or light interference fits to limit slipping, while couplings and hub collars use clearance fits secured by clamps.</p>
             <figure class="fig">
-              <a href="../assets/img/lamq/arm-labeled.webp" data-zoom><img src="../assets/img/lamq/arm-labeled.webp" width="841" height="572" alt="Labeled CAD of the vertical axis and arm: motor, shaft coupling, lead screw, linear rail, carriage, arm housing, rotary shaft, bearings, and arm link" loading="lazy"></a>
-              <figcaption>Vertical axis and arm, with the main components labeled</figcaption>
+              <a href="../assets/img/lamq/v4-arm.webp" data-zoom><img src="../assets/img/lamq/v4-arm.webp" width="1023" height="758" alt="The arm links with the cup selector mounted at the end" loading="lazy"></a>
+              <figcaption>The arm links, with the cup selector at the end of the arm</figcaption>
             </figure>
           </section>
 
           <section id="selector">
             <h2>Vacuum cup selector</h2>
-            <p>My part of the robot is the cup selector, which gives the robot the right cup size for each part. I’ve taken it through two different designs so far.</p>
+            <p>My part of the robot is the cup selector, which gives the robot the right cup size for each part. The current design replaced my earlier rotary valve and is now integrated into the near-final CAD.</p>
 
             <h3>Current design: rotating cup bracket</h3>
-            <p>Version 3 (October 2026) is a new approach. A DC gearmotor turns a three-armed bracket that carries three cup clusters, one each for <strong>2 mm, 3 mm, and 4 mm</strong> cups, with <strong>three cups per cluster</strong>. Each cluster has its own vacuum line.</p>
+            <p>A DC gearmotor turns a three-armed bracket that carries three cup clusters, one each for <strong>2 mm, 3 mm, and 4 mm</strong> cups, with <strong>three cups per cluster</strong>. Each cluster has its own vacuum line.</p>
             <p>Vacuum switching is separate from positioning. A manifold splits the single pump into three lines, and <strong>three 3-way solenoid valves</strong> choose which line gets vacuum. The motor then rotates the chosen cup cluster down into the working position.</p>
             <figure class="fig">
-              <a href="../assets/img/lamq/selector-v3.webp" data-zoom><img src="../assets/img/lamq/selector-v3.webp" width="691" height="550" alt="SolidWorks model of the version 3 cup selector: a DC gearmotor turning a three-armed bracket that holds three clusters of vacuum cups" loading="lazy"></a>
-              <figcaption>Version 3: a three-armed bracket carrying the 2, 3, and 4 mm cup clusters (October 2026)</figcaption>
+              <a href="../assets/img/lamq/v4-selector.webp" data-zoom><img src="../assets/img/lamq/v4-selector.webp" width="917" height="722" alt="The cup selector bracket on the arm, with one cup cluster pointing down at a part" loading="lazy"></a>
+              <figcaption>The cup selector, with one cluster pointing down at a part</figcaption>
             </figure>
             <div class="fig-row">
               <figure class="fig">
-                <a href="../assets/img/lamq/selector-v3-tubes.webp" data-zoom><img src="../assets/img/lamq/selector-v3-tubes.webp" width="1268" height="912" alt="Version 3 cup selector with a vacuum tube running to each cup cluster" loading="lazy"></a>
-                <figcaption>A vacuum line runs to each cluster</figcaption>
+                <a href="../assets/img/lamq/v4-selector-2.webp" data-zoom><img src="../assets/img/lamq/v4-selector-2.webp" width="841" height="739" alt="Close-up of the three cup clusters and their vacuum lines" loading="lazy"></a>
+                <figcaption>The three cup clusters and their vacuum lines</figcaption>
               </figure>
               <figure class="fig">
-                <a href="../assets/img/lamq/selector-v3-side.webp" data-zoom><img src="../assets/img/lamq/selector-v3-side.webp" width="736" height="624" alt="Side view of the version 3 cup selector with one cluster pointing down" loading="lazy"></a>
-                <figcaption>Side view, with one cluster pointing down</figcaption>
+                <a href="../assets/img/lamq/v4-selector-part.webp" data-zoom><img src="../assets/img/lamq/v4-selector-part.webp" width="759" height="699" alt="A cup cluster lowered toward a part" loading="lazy"></a>
+                <figcaption>A cup cluster lowered toward a part</figcaption>
               </figure>
             </div>
 
             <h3>First design: gear-driven rotary valve</h3>
-            <p>My first design was a <strong>gear-driven rotary vacuum valve</strong> that routed <strong>−80 kPa</strong> from the pump to <strong>1 of 4 cup sizes</strong> based on the weight of the part. A small DC gearmotor turned the valve through a 12-tooth pinion and a 36-tooth gear (module 1, a 3:1 reduction), so rotating the valve sent vacuum to one outlet at a time.</p>
-            <p>I took it through six versions in SolidWorks between late September and mid-October 2026. The early versions worked out the gear drive and a bracket to mount the motor; later versions added splitters at the outlets.</p>
-            <p>I replaced it because the rotary valve was overcomplicated and left extra room for air leakage. In Version 3, solenoid valves handle the vacuum switching and the motor only positions the cups, which keeps the design simpler.</p>
+            <p>My first design was a <strong>gear-driven rotary vacuum valve</strong> that routed −80 kPa from the pump to one cup size at a time. A small DC gearmotor turned the valve through a 12-tooth pinion and a 36-tooth gear (module 1, a 3:1 reduction). I took it through six versions in SolidWorks, then replaced it because it was overcomplicated and left extra room for air leakage. In the current design, solenoid valves handle the vacuum switching and the motor only positions the cups, which keeps the design simpler.</p>
             <figure class="fig">
-              <a href="../assets/img/lamq/valve-v14.webp" data-zoom><img src="../assets/img/lamq/valve-v14.webp" width="643" height="596" alt="SolidWorks model of the rotary vacuum valve with gear drive, DC gearmotor, and outlet splitters" loading="lazy"></a>
-              <figcaption>Rotary valve, version 1.4 (October 2026)</figcaption>
+              <a href="../assets/img/lamq/valve-v14.webp" data-zoom><img src="../assets/img/lamq/valve-v14.webp" width="643" height="596" alt="SolidWorks model of the earlier rotary vacuum valve with gear drive and DC gearmotor" loading="lazy"></a>
+              <figcaption>The earlier rotary valve, version 1.4 (October 2026)</figcaption>
             </figure>
+          </section>
+
+          <section id="progress">
+            <h2>Design progress</h2>
+            <p>Between the preliminary design review in October and the near-final CAD in November, the cup selector changed from the rotary valve to the rotating cup bracket, and the vacuum lines were routed from the base out to the end of the arm.</p>
             <div class="fig-row">
               <figure class="fig">
-                <a href="../assets/img/lamq/valve-v1.webp" data-zoom><img src="../assets/img/lamq/valve-v1.webp" width="887" height="754" alt="Early version of the valve with the motor bracket and gear drive" loading="lazy"></a>
-                <figcaption>Early version with the motor bracket and gear drive (September 2026)</figcaption>
+                <a href="../assets/img/lamq/robot-render.webp" data-zoom><img src="../assets/img/lamq/robot-render.webp" width="994" height="1126" alt="The robot at the preliminary design review, with the earlier rotary valve at the end of the arm" loading="lazy"></a>
+                <figcaption>October 2026: preliminary design review</figcaption>
               </figure>
               <figure class="fig">
-                <a href="../assets/img/lamq/valve-v1-section.webp" data-zoom><img src="../assets/img/lamq/valve-v1-section.webp" width="1031" height="620" alt="Section view of the early valve showing the internal vacuum passage" loading="lazy"></a>
-                <figcaption>Section view of the internal vacuum passage</figcaption>
+                <a href="../assets/img/lamq/v4-overview.webp" data-zoom><img src="../assets/img/lamq/v4-overview.webp" width="800" height="828" alt="The robot in its near-final CAD, with the cup selector bracket and vacuum lines" loading="lazy"></a>
+                <figcaption>November 2026: near-final CAD</figcaption>
               </figure>
             </div>
           </section>
@@ -202,16 +206,11 @@
           <span class="section__rule" aria-hidden="true"></span>
         </div>
         <div class="gallery">
-          <figure><a href="../assets/img/lamq/selector-v3-first.webp" data-zoom><img src="../assets/img/lamq/selector-v3-first.webp" width="1101" height="849" alt="Version 3 cup selector with its first cup cluster fitted" loading="lazy"></a><figcaption>Version 3 with the first cup cluster fitted</figcaption></figure>
-          <figure><a href="../assets/img/lamq/valve-concept.webp" data-zoom><img src="../assets/img/lamq/valve-concept.webp" width="652" height="572" alt="Early valve concept sketching the drive gear around the valve body" loading="lazy"></a><figcaption>Rotary valve: early concept, sizing the gear around the valve body</figcaption></figure>
-          <figure><a href="../assets/img/lamq/valve-bracket.webp" data-zoom><img src="../assets/img/lamq/valve-bracket.webp" width="580" height="443" alt="Valve with a motor bracket iteration" loading="lazy"></a><figcaption>Rotary valve: motor bracket iteration</figcaption></figure>
-          <figure><a href="../assets/img/lamq/valve-v1-end.webp" data-zoom><img src="../assets/img/lamq/valve-v1-end.webp" width="718" height="810" alt="End view of the valve showing the pinion, gear, and internal passages" loading="lazy"></a><figcaption>Rotary valve: end view of the pinion and gear</figcaption></figure>
-          <figure><a href="../assets/img/lamq/valve-splitter-trial.webp" data-zoom><img src="../assets/img/lamq/valve-splitter-trial.webp" width="774" height="515" alt="Valve version with a single splitter fitted" loading="lazy"></a><figcaption>Rotary valve: first splitter fitted to an outlet</figcaption></figure>
-          <figure><a href="../assets/img/lamq/valve-v14-front.webp" data-zoom><img src="../assets/img/lamq/valve-v14-front.webp" width="509" height="504" alt="Front view of valve version 1.4" loading="lazy"></a><figcaption>Rotary valve v1.4, front view</figcaption></figure>
-          <figure><a href="../assets/img/lamq/valve-v14-side.webp" data-zoom><img src="../assets/img/lamq/valve-v14-side.webp" width="682" height="544" alt="Side view of valve version 1.4 with the gear drive" loading="lazy"></a><figcaption>Rotary valve v1.4, side view with the gear drive</figcaption></figure>
-          <figure><a href="../assets/img/lamq/valve-v14-xsec.webp" data-zoom><img src="../assets/img/lamq/valve-v14-xsec.webp" width="726" height="727" alt="Cross-section through the four outlets of rotary valve version 1.4" loading="lazy"></a><figcaption>Rotary valve v1.4, cross-section through the four outlets</figcaption></figure>
-          <figure><a href="../assets/img/lamq/valve-v14-section.webp" data-zoom><img src="../assets/img/lamq/valve-v14-section.webp" width="766" height="634" alt="Lengthwise section of rotary valve version 1.4" loading="lazy"></a><figcaption>Rotary valve v1.4, lengthwise section</figcaption></figure>
-          <figure><a href="../assets/img/lamq/arm-render.webp" data-zoom><img src="../assets/img/lamq/arm-render.webp" width="578" height="622" alt="Render of the vertical axis and arm assembly" loading="lazy"></a><figcaption>Vertical axis and arm assembly</figcaption></figure>
+          <figure><a href="../assets/img/lamq/v4-assembly-back.webp" data-zoom><img src="../assets/img/lamq/v4-assembly-back.webp" width="829" height="762" alt="Rear three-quarter view of the full robot" loading="lazy"></a><figcaption>Rear three-quarter view of the full robot</figcaption></figure>
+          <figure><a href="../assets/img/lamq/v4-front.webp" data-zoom><img src="../assets/img/lamq/v4-front.webp" width="742" height="852" alt="Front view of the full robot" loading="lazy"></a><figcaption>Front view of the full robot</figcaption></figure>
+          <figure><a href="../assets/img/lamq/v4-arm-part.webp" data-zoom><img src="../assets/img/lamq/v4-arm-part.webp" width="1143" height="828" alt="The arm positioning the cup selector over a part" loading="lazy"></a><figcaption>The arm positioning the cup selector over a part</figcaption></figure>
+          <figure><a href="../assets/img/lamq/v4-cal-2.webp" data-zoom><img src="../assets/img/lamq/v4-cal-2.webp" width="795" height="813" alt="The base and vertical axis with the arm over a part" loading="lazy"></a><figcaption>The base and vertical axis, with the arm over a part</figcaption></figure>
+          <figure><a href="../assets/img/lamq/v4-selector-under.webp" data-zoom><img src="../assets/img/lamq/v4-selector-under.webp" width="976" height="725" alt="Close-up of the cup selector beneath the arm" loading="lazy"></a><figcaption>Close-up of the cup selector beneath the arm</figcaption></figure>
         </div>
       </div>
     </section>

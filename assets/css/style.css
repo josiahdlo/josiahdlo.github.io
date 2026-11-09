@@ -772,6 +772,8 @@ p { margin: 0 0 1em; }
 }
 .card__media--render { background: #c5c8d2; }
 .card__media--render img { object-fit: contain; }
+.card__media--cad { background: #e6e6e6; }
+.card__media--cad img { object-fit: contain; }
 .card--wide .card__media img { position: absolute; inset: 0; padding: 14px 0 0; }
 .card--wide .card__body { justify-content: center; gap: 12px; padding: 36px; }
 .card--wide .card__title { font-size: clamp(1.6rem, 2.6vw, 2.1rem); }
@@ -1074,6 +1076,7 @@ p { margin: 0 0 1em; }
 .cover img { width: 100%; max-height: 640px; object-fit: contain; }
 .cover--pad img { padding: 28px; }
 .cover--render { background: #c5c8d2; }
+.cover--cad { background: #e6e6e6; }
 .cover figcaption { padding: 12px 18px; border-top: 1px solid var(--line); }
 
 .results {
