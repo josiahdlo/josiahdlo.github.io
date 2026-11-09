@@ -789,6 +789,17 @@ p { margin: 0 0 1em; }
   .card--wide .card__body { padding: 22px; }
 }
 
+/* Mirrored wide card (image on the right) */
+.card.card--wide.card--flip { flex-direction: row-reverse; }
+.card--flip .card__media { border-right: 0; border-left: 1px solid var(--line); }
+.card__media--diagram { background: #fff; }
+.card__media--diagram img { object-fit: contain; padding: 24px; }
+.card--wide .card__media--diagram img { padding: 26px 26px 20px; }
+@media (max-width: 820px) {
+  .card.card--wide.card--flip { flex-direction: column; }
+  .card--flip .card__media { border-left: 0; }
+}
+
 /* "In progress" status pill */
 .pill {
   display: inline-flex;

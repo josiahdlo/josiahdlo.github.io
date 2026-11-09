@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Differential Resonant MEMS Pressure Sensor — Josiah Lo</title>
+  <meta name="description" content="A comb-driven double-ended tuning fork pressure sensor with differential FM output, designed for the PolyMUMPs process: 8-mask 1 mm² layout verified against design rules and a 2-D process simulation.">
+  <link rel="canonical" href="https://josiahdlo.github.io/projects/mems-pressure-sensor.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Differential Resonant MEMS Pressure Sensor — Josiah Lo">
+  <meta property="og:description" content="Sealed and vented diaphragms each strain a comb-driven tuning fork; comparing the two cancels temperature drift. PolyMUMPs layout, tuning-fork sizing, and process simulation.">
+  <meta property="og:url" content="https://josiahdlo.github.io/projects/mems-pressure-sensor.html">
+  <meta property="og:image" content="https://josiahdlo.github.io/assets/img/og-v2.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="../favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script>document.documentElement.classList.add("js");</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="nav">
+    <div class="wrap nav__inner">
+      <a class="brand" href="../index.html" aria-label="Josiah Lo — home">
+        <span class="brand__mark" aria-hidden="true">JL</span>
+        Josiah Lo
+      </a>
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+        <span class="nav__toggle-bars" aria-hidden="true"></span> Menu
+      </button>
+      <ul class="nav__links" id="nav-links">
+        <li><a href="../index.html#experience">Experience</a></li>
+        <li><a href="../index.html#projects">Projects</a></li>
+        <li><a href="../index.html#skills">Skills</a></li>
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+        <li><a class="nav__resume" href="../assets/Josiah_Lo_Resume.pdf" target="_blank" rel="noopener">Résumé</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="phero">
+      <div class="wrap">
+        <a class="back" href="../index.html#projects">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 19l-7-7 7-7"/></svg>
+          All projects
+        </a>
+        <p class="phero__eyebrow label">UC Berkeley MEMS design project · MEMS · Microfabrication</p>
+        <h1 class="phero__title">Differential Resonant MEMS Pressure Sensor</h1>
+        <p class="phero__lead">A comb-driven tuning-fork pressure sensor with differential FM output, designed for the PolyMUMPs surface-micromachining process. A sealed and a vented polysilicon diaphragm each strain their own tuning fork, and comparing the two frequencies cancels temperature drift and packaging-stress bias. I sized the tuning fork and laid out the 8-mask, 1 mm² die, verified against the PolyMUMPs design rules and a 2-D process simulation.</p>
+        <dl class="meta">
+          <div><dt class="label">My work</dt><dd>Tuning-fork sizing, mask layout &amp; verification</dd></div>
+          <div><dt class="label">Team</dt><dd>2 students</dd></div>
+          <div><dt class="label">Timeline</dt><dd>Aug 2026 – Present</dd></div>
+          <div><dt class="label">Process</dt><dd>PolyMUMPs, 8 masks</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <figure class="cover cover--pad">
+        <a href="../assets/img/mems/layout-labeled.webp" data-zoom><img src="../assets/img/mems/layout-labeled.webp" width="1187" height="1248" alt="PolyMUMPs mask layout of the 1 mm die: the sensing half with its sealed diaphragm on top, the reference half with its vented diaphragm below, and seven bond pads"></a>
+        <figcaption class="label">The 1 mm × 1 mm die: sealed sense half on top, vented reference half below</figcaption>
+      </figure>
+
+      <div class="results" style="--cols:4">
+        <div class="stat">
+          <span class="label">Die</span>
+          <div class="stat__num">1 <small>mm²</small></div>
+          <p class="stat__text">8-mask PolyMUMPs layout with seven bond pads</p>
+        </div>
+        <div class="stat">
+          <span class="label">Resonance</span>
+          <div class="stat__num">670 <small>kHz</small></div>
+          <p class="stat__text">Down from 3.2 MHz after lengthening the flexures</p>
+        </div>
+        <div class="stat">
+          <span class="label">Sensitivity</span>
+          <div class="stat__num">4.6×</div>
+          <p class="stat__text">Higher pressure sensitivity from the redesign</p>
+        </div>
+        <div class="stat">
+          <span class="label">Buckling</span>
+          <div class="stat__num">2× <small>margin</small></div>
+          <p class="stat__text">Held while resizing the tuning fork</p>
+        </div>
+      </div>
+
+      <div class="pbody">
+        <nav class="toc" aria-label="On this page">
+          <span class="label">On this page</span>
+          <ol>
+            <li><a href="#concept">How it works</a></li>
+            <li><a href="#sizing">Sizing the tuning fork</a></li>
+            <li><a href="#layout">Layout &amp; design rules</a></li>
+            <li><a href="#process">Process simulation</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+          </ol>
+        </nav>
+
+        <article class="prose">
+          <section id="concept">
+            <h2>How it works</h2>
+            <p>The die holds two matching halves. In each one, a polysilicon diaphragm connects to a comb-driven <strong>double-ended tuning fork (DETF)</strong>. Its two tines vibrate equally and in antiphase, so the net force on the anchors and substrate is nearly zero, which gives the resonator a high quality factor.</p>
+            <p>The measurement diaphragm’s cavity is sealed after release. As outside pressure changes, it deflects, straining its tuning fork and shifting the fork’s frequency. The reference diaphragm is left unsealed, so its fork provides a reference frequency that sees the same temperature and packaging stress. The pressure comes from the difference between the two frequencies:</p>
+            <div class="callout"><p><strong>Δf = f<sub>measure</sub> − f<sub>ref</sub>,&nbsp; P = P<sub>seal</sub> + K(Δf − Δf<sub>0</sub>)</strong></p></div>
+            <figure class="fig">
+              <a href="../assets/img/mems/poster.webp" data-zoom><img src="../assets/img/mems/poster.webp" width="2000" height="1125" alt="Project poster: Comb Driven DETF Pressure Sensor with Differential FM Output, showing the cross-section, the layout, and the driving and sensing combs" loading="lazy"></a>
+              <figcaption>Our project poster, explaining the comb-driven DETF and the differential layout</figcaption>
+            </figure>
+          </section>
+
+          <section id="sizing">
+            <h2>Sizing the tuning fork</h2>
+            <p>I sized the tuning fork through hand calculations and beam FEA of its <strong>stiffness, buckling, air damping, and stress stiffening</strong>. Lengthening the flexures from <strong>18 to 60 µm</strong> lowered the resonance from <strong>3.2 MHz to 670 kHz</strong> and raised pressure sensitivity <strong>4.6×</strong>, while holding a <strong>2× buckling margin</strong>. The tines grew from 100 to 184 µm, and the shuttle and comb drives stayed the same.</p>
+            <figure class="fig">
+              <a href="../assets/img/mems/detf-zoom.webp" data-zoom><img src="../assets/img/mems/detf-zoom.webp" width="1162" height="857" alt="Zoomed layout of the sense tuning fork showing the 60 µm flexures, comb drives, anchors, and the anchor plate on the diaphragm" loading="lazy"></a>
+              <figcaption>The sense tuning fork: 60 µm flexures, comb drives, and the anchor plate that connects it to the diaphragm</figcaption>
+            </figure>
+          </section>
+
+          <section id="layout">
+            <h2>Layout &amp; design rules</h2>
+            <p>I laid out all <strong>8 PolyMUMPs masks</strong> for the 1 mm × 1 mm die and exported them as DXF and GDS files. The layout passes the PolyMUMPs <strong>minimum-feature, spacing, and level-to-level rules</strong>, with no shorts between pads and every structure connected to a pad and anchored.</p>
+            <p>Meeting the rules took several changes, such as widening the tines from 2 to 3 µm, since the foundry advises against long, isolated 2 µm lines. One deliberate waiver remains: each diaphragm releases through only four center holes, so the farthest oxide sits about 56 µm from a hole and needs a longer HF release.</p>
+            <figure class="fig">
+              <a href="../assets/img/mems/drc.webp" data-zoom><img src="../assets/img/mems/drc.webp" width="1800" height="646" alt="Design-rule verification table: every minimum feature, spacing, and level-to-level check passes" loading="lazy"></a>
+              <figcaption>Verification against the PolyMUMPs design rules</figcaption>
+            </figure>
+          </section>
+
+          <section id="process">
+            <h2>Process simulation</h2>
+            <p>To confirm the masks build the intended structure, the layout was checked against a <strong>2-D simulation of the PolyMUMPs process</strong> along several cuts through the die: conformal LPCVD deposition, anisotropic RIE, and the HF release. Every section shows contacts only where intended, with the tines released <strong>2.75 µm</strong> above the ground plane and <strong>2 µm</strong> lateral gaps between comb fingers.</p>
+            <figure class="fig">
+              <a href="../assets/img/mems/sections.webp" data-zoom><img src="../assets/img/mems/sections.webp" width="1800" height="522" alt="Simulated cross-sections along the tuning fork, its anchors, and the comb fingers" loading="lazy"></a>
+              <figcaption>Simulated cross-sections along the tuning fork, its anchors, and the comb fingers (vertical scale exaggerated)</figcaption>
+            </figure>
+            <p>After the foundry run and HF release, the plan is to seal the measurement diaphragm’s holes under a microscope with dots of UV-curing epoxy placed by a fine needle. The cavity seals at about 1 atm, so its reference is trapped air. Matching epoxy dots beside the open reference holes keep both diaphragms equally stiff.</p>
+            <figure class="fig">
+              <a href="../assets/img/mems/flow-release.webp" data-zoom><img src="../assets/img/mems/flow-release.webp" width="1800" height="894" alt="Process-flow steps for the HF release and the UV epoxy seal of the measurement diaphragm" loading="lazy"></a>
+              <figcaption>Release and epoxy-seal steps from the simulated process flow</figcaption>
+            </figure>
+          </section>
+        </article>
+      </div>
+    </div>
+
+    <section class="gallery-section" id="gallery">
+      <div class="wrap">
+        <div class="section__head">
+          <h2 class="section__title">Gallery</h2>
+          <span class="section__rule" aria-hidden="true"></span>
+        </div>
+        <div class="gallery">
+          <figure><a href="../assets/img/mems/layout.webp" data-zoom><img class="fit" src="../assets/img/mems/layout.webp" width="1516" height="1516" alt="Full mask layout of the die with all layers" loading="lazy"></a><figcaption>Full mask layout, all layers</figcaption></figure>
+          <figure><a href="../assets/img/mems/final-cad.webp" data-zoom><img class="fit" src="../assets/img/mems/final-cad.webp" width="1793" height="1800" alt="Final layout CAD of the die" loading="lazy"></a><figcaption>Final layout CAD</figcaption></figure>
+          <figure><a href="../assets/img/mems/mask-table.webp" data-zoom><img class="fit" src="../assets/img/mems/mask-table.webp" width="1162" height="587" alt="Table of the 8 PolyMUMPs masks and what each defines" loading="lazy"></a><figcaption>The 8 masks and what each one defines</figcaption></figure>
+          <figure><a href="../assets/img/mems/sections-all.webp" data-zoom><img class="fit" src="../assets/img/mems/sections-all.webp" width="1800" height="1371" alt="All simulated cross-sections through the die" loading="lazy"></a><figcaption>All simulated cross-sections</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="pnext">
+      <div class="wrap">
+        <a href="suspension-box.html">
+          <div><span class="label">Next project</span><strong>Composite Suspension Box</strong></div>
+          <span class="card__go" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 5l7 7-7 7"/></svg></span>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer__inner">
+      <span>© <span data-year>2026</span> Josiah Lo</span>
+      <nav aria-label="Footer">
+        <a href="../assets/Josiah_Lo_Resume.pdf" target="_blank" rel="noopener">Résumé</a>
+        <a href="https://www.linkedin.com/in/josiahdavidlo" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:josiahlo@berkeley.edu">Email</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js" defer></script>
+</body>
+</html>
