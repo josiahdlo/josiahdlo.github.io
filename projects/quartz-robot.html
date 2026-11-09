@@ -110,7 +110,7 @@
             <p>Assembling semiconductor equipment involves handling quartz components with a very high surface finish. Lam Research asked our team to pick and place these parts with small vacuum cups, and to have the robot choose the right cup for each part on its own.</p>
             <dl class="brief">
               <div><dt>Objective</dt><dd>Pick and place quartz components of varying sizes with surface roughness of Ra 4 and 8 µin, using a robotic rig fitted with small vacuum cups.</dd></div>
-              <div><dt>Requirements</dt><dd><ul><li>Predict the lifting capability (weight) of each nozzle size</li><li>Determine the highest allowable load per mm² of nozzle opening with a factor of safety of 2, for commercially available cups under 2 mm in diameter</li><li>Automatically select the cup size from the component’s weight: smaller parts get a smaller cup, bigger parts a bigger one</li></ul></dd></div>
+              <div><dt>Requirements</dt><dd><ul><li>Predict the lifting capability (weight) of each nozzle size</li><li>Determine the highest allowable load per mm² of nozzle opening with a factor of safety of 2, for 3 different cup sizes</li><li>Automatically select the cup size from the component’s weight: smaller parts get a smaller cup, bigger parts a bigger one</li></ul></dd></div>
               <div><dt>Constraints</dt><dd><ul><li>$500 team budget</li><li>Final oral presentation to Lam Research representatives</li></ul></dd></div>
             </dl>
           </section>
@@ -145,7 +145,8 @@
             <p>My part of the robot is the cup selector, which gives the robot the right cup size for each part. I’ve taken it through two different designs so far.</p>
 
             <h3>Current design: rotating cup bracket</h3>
-            <p>Version 3 (October 2026) is a new approach. A DC gearmotor turns a three-armed bracket that carries three cup clusters, one each for <strong>2 mm, 3 mm, and 4 mm</strong> cups, with <strong>three cups per cluster</strong>. Each cluster has its own vacuum line. Turning the bracket changes which cluster points down toward the part.</p>
+            <p>Version 3 (October 2026) is a new approach. A DC gearmotor turns a three-armed bracket that carries three cup clusters, one each for <strong>2 mm, 3 mm, and 4 mm</strong> cups, with <strong>three cups per cluster</strong>. Each cluster has its own vacuum line.</p>
+            <p>Vacuum switching is separate from positioning. A manifold splits the single pump into three lines, and <strong>three 3-way solenoid valves</strong> choose which line gets vacuum. The motor then rotates the chosen cup cluster down into the working position.</p>
             <figure class="fig">
               <a href="../assets/img/lamq/selector-v3.webp" data-zoom><img src="../assets/img/lamq/selector-v3.webp" width="691" height="550" alt="SolidWorks model of the version 3 cup selector: a DC gearmotor turning a three-armed bracket that holds three clusters of vacuum cups" loading="lazy"></a>
               <figcaption>Version 3: a three-armed bracket carrying the 2, 3, and 4 mm cup clusters (October 2026)</figcaption>
@@ -164,6 +165,7 @@
             <h3>First design: gear-driven rotary valve</h3>
             <p>My first design was a <strong>gear-driven rotary vacuum valve</strong> that routed <strong>−80 kPa</strong> from the pump to <strong>1 of 4 cup sizes</strong> based on the weight of the part. A small DC gearmotor turned the valve through a 12-tooth pinion and a 36-tooth gear (module 1, a 3:1 reduction), so rotating the valve sent vacuum to one outlet at a time.</p>
             <p>I took it through six versions in SolidWorks between late September and mid-October 2026. The early versions worked out the gear drive and a bracket to mount the motor; later versions added splitters at the outlets.</p>
+            <p>I replaced it because the rotary valve was overcomplicated and left extra room for air leakage. In Version 3, solenoid valves handle the vacuum switching and the motor only positions the cups, which keeps the design simpler.</p>
             <figure class="fig">
               <a href="../assets/img/lamq/valve-v14.webp" data-zoom><img src="../assets/img/lamq/valve-v14.webp" width="643" height="596" alt="SolidWorks model of the rotary vacuum valve with gear drive, DC gearmotor, and outlet splitters" loading="lazy"></a>
               <figcaption>Rotary valve, version 1.4 (October 2026)</figcaption>
