@@ -17,6 +17,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/style.css">
+  <script type="importmap">{"imports": {"three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
   <script>document.documentElement.classList.add("js");</script>
 </head>
 <body>
@@ -89,6 +90,20 @@
           <p class="stat__text">Total team budget set by the project brief</p>
         </div>
       </div>
+
+      <section class="viewer" data-lamq-viewer data-models="../assets/models/" aria-label="3D animation">
+        <div class="viewer__head">
+          <h2 class="viewer__title">See it move</h2>
+          <p class="viewer__sub">Built from our near-final SolidWorks assembly: the robot selects its 4 mm cups, picks up the quartz, moves it, and sets it down.</p>
+        </div>
+        <div class="viewer__stage" role="img" aria-label="Animated 3D model of the quartz manipulation robot picking up a quartz part, moving it, and setting it down"></div>
+        <div class="viewer__bar">
+          <span class="viewer__status label" aria-live="off">Loading 3D model…</span>
+          <span class="viewer__hint">Drag to rotate</span>
+          <button class="viewer__play" type="button" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="i-pause" d="M7 5h3v14H7zM14 5h3v14h-3z"/><path class="i-play" d="M8 5v14l11-7z"/></svg><span>Pause</span></button>
+        </div>
+        <p class="viewer__fallback">The 3D animation needs WebGL, which this browser doesn’t support.</p>
+      </section>
 
       <div class="pbody">
         <nav class="toc" aria-label="On this page">
@@ -237,5 +252,6 @@
   </footer>
 
   <script src="../assets/js/main.js" defer></script>
+  <script type="module" src="../assets/js/lamq-viewer.js"></script>
 </body>
 </html>

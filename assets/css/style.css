@@ -1284,6 +1284,58 @@ p { margin: 0 0 1em; }
 }
 .toast.is-visible { opacity: 1; transform: translate(-50%, 0); }
 
+/* ---------- 3D viewer (Lam-Q animation) ---------- */
+
+.viewer {
+  margin: 28px 0 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+.viewer__head { padding: 20px 22px 14px; border-bottom: 1px solid var(--line); }
+.viewer__title { font-size: 1.35rem; letter-spacing: -0.02em; }
+.viewer__sub { margin: 6px 0 0; color: var(--muted); font-size: 0.92rem; }
+.viewer__stage { position: relative; aspect-ratio: 4 / 3; max-height: 78vh; width: 100%; background: #eef0ec; cursor: grab; }
+.viewer__stage:active { cursor: grabbing; }
+.viewer__stage canvas { display: block; width: 100% !important; height: 100% !important; }
+.viewer__bar {
+  display: flex;
+  align-items: center;
+  gap: 12px 18px;
+  flex-wrap: wrap;
+  padding: 12px 16px 12px 22px;
+  border-top: 1px solid var(--line);
+}
+.viewer__status { color: var(--accent-ink); min-width: 15ch; }
+.viewer__hint { margin-right: auto; color: var(--muted); font-size: 0.85rem; }
+.viewer__play {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 36px;
+  padding: 0 14px;
+  border: 1px solid var(--line-2);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--ink);
+  font: 500 0.88rem var(--font-body);
+  cursor: pointer;
+}
+.viewer__play:hover { border-color: var(--ink); }
+.viewer__play svg { width: 14px; height: 14px; fill: currentColor; }
+.viewer__play .i-play { display: none; }
+.viewer__play[data-state="paused"] .i-play { display: inline; }
+.viewer__play[data-state="paused"] .i-pause { display: none; }
+.viewer__fallback { display: none; margin: 0; padding: 18px 22px; color: var(--muted); }
+.viewer--fallback .viewer__stage, .viewer--fallback .viewer__bar { display: none; }
+.viewer--fallback .viewer__fallback { display: block; }
+@media (max-width: 640px) {
+  .viewer__stage { aspect-ratio: 4 / 3; }
+  .viewer__hint { display: none; }
+}
+
 /* ---------- Lightbox ---------- */
 
 .lightbox {
