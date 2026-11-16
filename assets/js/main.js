@@ -118,6 +118,15 @@
     });
   }
 
+  // ---- Looping figure videos: no autoplay for reduced-motion visitors ----
+  if (window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    Array.prototype.forEach.call(document.querySelectorAll("video[autoplay]"), function (v) {
+      v.removeAttribute("autoplay");
+      v.pause();
+      v.controls = true;
+    });
+  }
+
   // ---- Lightbox for [data-zoom] links ----
   var items = Array.prototype.slice.call(document.querySelectorAll("a[data-zoom]"));
   if (!items.length || typeof HTMLDialogElement === "undefined") return;
