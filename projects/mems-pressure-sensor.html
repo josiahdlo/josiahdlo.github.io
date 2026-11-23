@@ -51,12 +51,12 @@
         </a>
         <p class="phero__eyebrow label">UC Berkeley MEMS design project · MEMS · Microfabrication</p>
         <h1 class="phero__title">Differential Resonant MEMS Pressure Sensor</h1>
-        <p class="phero__lead">A comb-driven tuning-fork pressure sensor with differential FM output, designed for the PolyMUMPs surface-micromachining process. A sealed and a vented polysilicon diaphragm each strain their own tuning fork, and comparing the two frequencies cancels temperature drift and packaging-stress bias. I sized the tuning fork, laid out the 8-mask, 1 mm² die, and checked the design with modal FEA in Ansys. The final phase carries the sensor into Sandia’s IMEMS process, which builds MEMS beside CMOS circuits on one chip.</p>
+        <p class="phero__lead">A comb-driven tuning-fork pressure sensor with differential FM output, designed for the PolyMUMPs surface-micromachining process. A sealed and a vented polysilicon diaphragm each strain their own tuning fork, and comparing the two frequencies cancels temperature drift and packaging-stress bias. I sized the tuning fork, laid out the 8-mask, 1 mm² die, and checked the design with modal FEA in Ansys. I’m now revising it for a process inspired by Sandia’s IMEMS, which builds MEMS beside CMOS circuits on one chip.</p>
         <dl class="meta">
           <div><dt class="label">My work</dt><dd>Tuning-fork sizing, mask layout, Ansys FEA</dd></div>
           <div><dt class="label">Team</dt><dd>2 students</dd></div>
           <div><dt class="label">Timeline</dt><dd>Aug 2026 – Present</dd></div>
-          <div><dt class="label">Process</dt><dd>PolyMUMPs, then Sandia IMEMS</dd></div>
+          <div><dt class="label">Process</dt><dd>PolyMUMPs, now IMEMS-inspired</dd></div>
         </dl>
       </div>
     </section>
@@ -99,7 +99,7 @@
             <li><a href="#layout">Layout &amp; design rules</a></li>
             <li><a href="#process">Process simulation</a></li>
             <li><a href="#fea">Ansys modal FEA</a></li>
-            <li><a href="#imems">IMEMS redesign</a></li>
+            <li><a href="#imems">IMEMS-inspired revision</a></li>
             <li><a href="#gallery">Gallery</a></li>
           </ol>
         </nav>
@@ -151,7 +151,7 @@
 
           <section id="fea">
             <h2>Ansys modal FEA</h2>
-            <p>To check the hand calculations, I took a 3D model of the die, built from the mask layout, into <strong>Ansys Mechanical</strong>. A static structural step loads the sealed diaphragm with pressure, and a pre-stressed modal analysis then finds the tine modes of both tuning forks.</p>
+            <p>To check the hand calculations, I took a 3D model of the PolyMUMPs die, built from the mask layout, into <strong>Ansys Mechanical</strong>. A static structural step loads the sealed diaphragm with pressure, and a pre-stressed modal analysis then finds the tine modes of both tuning forks.</p>
             <figure class="fig">
               <video class="fig__video" autoplay muted loop playsinline preload="metadata" poster="../assets/img/mems/tine-mode-poster.webp" width="1100" height="592" aria-label="Ansys animation of the tuning fork’s anti-phase mode: the two tines bow apart and together while the diaphragm stays still">
                 <source src="../assets/img/mems/tine-mode.mp4" type="video/mp4">
@@ -176,17 +176,17 @@
           </section>
 
           <section id="imems">
-            <h2>IMEMS redesign</h2>
-            <p>The project’s final phase carries the same sensor into <strong>Sandia’s IMEMS process</strong>, which builds the MEMS inside a KOH-etched trench beside the CMOS readout circuits on one chip. The v3 design uses <strong>13 mask layers</strong>. Every moving part becomes a 4 µm laminate of two polysilicon layers, the comb gaps shrink to 1 µm, and polysilicon studs carry each signal up to the CMOS aluminium wiring. The epoxy seal carries over: dots over the sense diaphragm’s release holes trap air at about 1 atm, and matching dots keep the vented reference just as stiff.</p>
+            <h2>IMEMS-inspired revision</h2>
+            <div class="callout"><p><strong>In progress.</strong> I’m revising this design, rebuilding the CAD, and re-running the simulations. The figures below show the current draft.</p></div>
+            <p>This revision moves the sensor to a process <strong>inspired by Sandia’s IMEMS</strong>, which builds MEMS inside a KOH-etched trench beside the CMOS readout circuits on one chip. Sandia’s exact process isn’t public, so this flow follows the same general approach without being their process. The current draft uses <strong>13 mask layers</strong>. Every moving part becomes a 4 µm laminate of two polysilicon layers, the comb gaps shrink to 1 µm, and polysilicon studs carry each signal up to the CMOS aluminium wiring. The epoxy seal carries over: dots over the sense diaphragm’s release holes trap air at about 1 atm, and matching dots keep the vented reference just as stiff.</p>
             <figure class="fig">
-              <a href="../assets/img/mems/imems-section.webp" data-zoom><img src="../assets/img/mems/imems-section.webp" width="1720" height="978" alt="Labeled cross-section of the IMEMS sense unit: sealed diaphragm with epoxy dots in a KOH trench, the lever plate and tine above a Poly0 ground plane, and a polysilicon stud connecting to aluminium metal 1" loading="lazy"></a>
-              <figcaption>Cross-section of the IMEMS sense unit, from the sealed diaphragm to the stud that connects to the CMOS wiring (vertical scale exaggerated about 7×)</figcaption>
+              <a href="../assets/img/mems/imems-section.webp" data-zoom><img src="../assets/img/mems/imems-section.webp" width="1720" height="978" alt="Labeled draft cross-section of the IMEMS-inspired sense unit: sealed diaphragm with epoxy dots in a KOH trench, the lever plate and tine above a Poly0 ground plane, and a polysilicon stud connecting to aluminium metal 1" loading="lazy"></a>
+              <figcaption>Draft cross-section of the sense unit, from the sealed diaphragm to the stud that connects to the CMOS wiring (vertical scale exaggerated about 7×)</figcaption>
             </figure>
             <figure class="fig">
-              <a href="../assets/img/mems/imems-top.webp" data-zoom><img src="../assets/img/mems/imems-top.webp" width="1720" height="1160" alt="To-scale top view of the IMEMS sense unit with the diaphragm, epoxy dots, lever plate, 184 µm tines, sense and drive combs, and studs, all labeled" loading="lazy"></a>
-              <figcaption>Top view of the sense unit, to scale</figcaption>
+              <a href="../assets/img/mems/imems-top.webp" data-zoom><img src="../assets/img/mems/imems-top.webp" width="1720" height="1160" alt="To-scale draft top view of the IMEMS-inspired sense unit with the diaphragm, epoxy dots, lever plate, 184 µm tines, sense and drive combs, and studs, all labeled" loading="lazy"></a>
+              <figcaption>Draft top view of the sense unit, to scale</figcaption>
             </figure>
-            <p>The masks pass automated width and spacing checks, and about half of the die is reserved for the readout circuits. Bond pads and circuits come next.</p>
           </section>
         </article>
       </div>
@@ -203,8 +203,8 @@
           <figure><a href="../assets/img/mems/final-cad.webp" data-zoom><img class="fit" src="../assets/img/mems/final-cad.webp" width="1793" height="1800" alt="Final layout CAD of the die" loading="lazy"></a><figcaption>Final layout CAD</figcaption></figure>
           <figure><a href="../assets/img/mems/mask-table.webp" data-zoom><img class="fit" src="../assets/img/mems/mask-table.webp" width="1162" height="587" alt="Table of the 8 PolyMUMPs masks and what each defines" loading="lazy"></a><figcaption>The 8 masks and what each one defines</figcaption></figure>
           <figure><a href="../assets/img/mems/sections-all.webp" data-zoom><img class="fit" src="../assets/img/mems/sections-all.webp" width="1800" height="1371" alt="All simulated cross-sections through the die" loading="lazy"></a><figcaption>All simulated cross-sections</figcaption></figure>
-          <figure><a href="../assets/img/mems/imems-steps.webp" data-zoom><img class="fit" src="../assets/img/mems/imems-steps.webp" width="2200" height="1613" alt="Eight-step IMEMS process flow, from the KOH trench etch through the polysilicon layers, studs, CMOS metal, release, and epoxy seal" loading="lazy"></a><figcaption>IMEMS process flow in eight steps</figcaption></figure>
-          <figure><a href="../assets/img/mems/imems-comb.webp" data-zoom><img class="fit" src="../assets/img/mems/imems-comb.webp" width="1720" height="668" alt="Comb-drive detail for the IMEMS design: 1 µm rotor and stator fingers with 1 µm gaps and 4 µm pitch" loading="lazy"></a><figcaption>IMEMS comb detail: 1 µm fingers and gaps</figcaption></figure>
+          <figure><a href="../assets/img/mems/imems-steps.webp" data-zoom><img class="fit" src="../assets/img/mems/imems-steps.webp" width="2200" height="1613" alt="Eight-step draft of the IMEMS-inspired process flow, from the KOH trench etch through the polysilicon layers, studs, CMOS metal, release, and epoxy seal" loading="lazy"></a><figcaption>Draft IMEMS-inspired process flow in eight steps</figcaption></figure>
+          <figure><a href="../assets/img/mems/imems-comb.webp" data-zoom><img class="fit" src="../assets/img/mems/imems-comb.webp" width="1720" height="668" alt="Comb-drive detail for the draft IMEMS-inspired design: 1 µm rotor and stator fingers with 1 µm gaps and 4 µm pitch" loading="lazy"></a><figcaption>Draft comb detail: 1 µm fingers and gaps</figcaption></figure>
         </div>
       </div>
     </section>
