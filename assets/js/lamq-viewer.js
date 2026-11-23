@@ -8,8 +8,39 @@ import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 import { RoomEnvironment } from "three/addons/environments/RoomEnvironment.js";
 import { toCreasedNormals } from "three/addons/utils/BufferGeometryUtils.js";
 
+const INK = "#24272b";                    // line color, like a SolidWorks "shaded with edges" view
+const INK_RGB = "0.141, 0.153, 0.169";
+
 const root = document.querySelector("[data-lamq-viewer]");
 if (root) init(root);
+
+// CAD edges exported from the STEP file: per body, polyline lengths followed by Uint16-quantized points.
+async function loadEdges(base) {
+  const get = async (name, kind) => {
+    const r = await fetch(base + name);
+    if (!r.ok) throw new Error(name);
+    return r[kind]();
+  };
+  const [info, buf] = await Promise.all([get("lamq_edges.json", "json"), get("lamq_edges.bin", "arrayBuffer")]);
+  const out = {};
+  for (const [body, e] of Object.entries(info.bodies)) {
+    const counts = new Uint16Array(buf, e.offset, e.nLines);
+    const q = new Uint16Array(buf, e.offset + e.nLines * 2, e.nPoints * 3);
+    const pos = new Float32Array(q.length);
+    for (let i = 0; i < q.length; i++) pos[i] = info.origin[i % 3] + q[i] * info.scale;
+    const index = new Uint32Array((e.nPoints - e.nLines) * 2);
+    let start = 0, w = 0;
+    for (const n of counts) {
+      for (let k = 0; k < n - 1; k++) { index[w++] = start + k; index[w++] = start + k + 1; }
+      start += n;
+    }
+    const geo = new THREE.BufferGeometry();
+    geo.setAttribute("position", new THREE.BufferAttribute(pos, 3));
+    geo.setIndex(new THREE.BufferAttribute(index, 1));
+    out[body] = geo;
+  }
+  return out;
+}
 
 async function init(root) {
   const stage = root.querySelector(".viewer__stage");
@@ -63,20 +94,46 @@ async function init(root) {
   scene.add(ground);
 
   // ---------- load ----------
-  const [rig, gltf] = await Promise.all([
+  const [rig, gltf, cadEdges] = await Promise.all([
     fetch(base + "lamq_rig.json").then((r) => r.json()),
     new GLTFLoader().loadAsync(base + "lamq_bodies.glb"),
+    loadEdges(base).catch(() => null),                     // the model still runs without its outlines
   ]);
 
   const MAT = {
-    light: new THREE.MeshStandardMaterial({ color: "#c9ccd1", metalness: 0.1, roughness: 0.55 }),
-    alu: new THREE.MeshStandardMaterial({ color: "#c3c8ce", metalness: 0.55, roughness: 0.38 }),
-    steel: new THREE.MeshStandardMaterial({ color: "#9aa0a7", metalness: 0.8, roughness: 0.32 }),
+    light: new THREE.MeshStandardMaterial({ color: "#dcdee1", metalness: 0.05, roughness: 0.62 }),
+    alu: new THREE.MeshStandardMaterial({ color: "#e0e2e5", metalness: 0.12, roughness: 0.58 }),
+    steel: new THREE.MeshStandardMaterial({ color: "#b9bdc2", metalness: 0.35, roughness: 0.45 }),
     motor: new THREE.MeshStandardMaterial({ color: "#575b62", metalness: 0.45, roughness: 0.45 }),
     dark: new THREE.MeshStandardMaterial({ color: "#2c2826", metalness: 0.15, roughness: 0.6 }),
     cup: new THREE.MeshStandardMaterial({ color: "#efefef", metalness: 0.0, roughness: 0.7 }),
     glass: new THREE.MeshPhysicalMaterial({ color: "#cfe7f2", metalness: 0, roughness: 0.06, transparent: true, opacity: 0.55, clearcoat: 1 }),
     tube: new THREE.MeshStandardMaterial({ color: "#e4ebef", metalness: 0, roughness: 0.35, transparent: true, opacity: 0.88 }),
+  };
+  // ---------- CAD-style line work ----------
+  // Faces sit slightly behind their lines so the two never z-fight.
+  Object.values(MAT).forEach((m) => Object.assign(m, { polygonOffset: true, polygonOffsetFactor: 1, polygonOffsetUnits: 1 }));
+  const EDGE_MAT = new THREE.LineBasicMaterial({ color: INK, toneMapped: false });   // true edges from the STEP file
+  const OUTLINE_MAT = new THREE.ShaderMaterial({                                     // silhouettes of round parts
+    side: THREE.BackSide,
+    toneMapped: false,
+    polygonOffset: true, polygonOffsetFactor: 1, polygonOffsetUnits: 1,
+    uniforms: { res: { value: new THREE.Vector2(1, 1) }, width: { value: 1 } },
+    vertexShader: `uniform vec2 res; uniform float width;
+      void main() {
+        vec4 clip = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+        vec2 dir = (projectionMatrix * vec4(normalMatrix * normal, 0.0)).xy * res;
+        float len = length(dir);
+        if (len > 1e-5) clip.xy += (dir / len) * width * 2.0 / res * clip.w;
+        gl_Position = clip;
+      }`,
+    fragmentShader: `void main() { gl_FragColor = vec4(${INK_RGB}, 1.0); }`,
+  });
+  // the clear tubing can't use a back-face outline, so its rim is inked in the shader instead
+  MAT.tube.onBeforeCompile = (s) => {
+    s.fragmentShader = s.fragmentShader.replace("#include <dithering_fragment>", `#include <dithering_fragment>
+      float rimInk = smoothstep(0.42, 0.62, 1.0 - abs(dot(normalize(vNormal), normalize(vViewPosition))));
+      gl_FragColor = vec4(mix(gl_FragColor.rgb, vec3(${INK_RGB}), rimInk), max(gl_FragColor.a, rimInk));`);
   };
 
   // world group: puts the floor at y = 0 and the column axis at the origin
@@ -92,11 +149,21 @@ async function init(root) {
     if (!meshes[body] || !MAT[mat]) return;
     const geo = toCreasedNormals(o.geometry, THREE.MathUtils.degToRad(35));
     const m = new THREE.Mesh(geo, MAT[mat]);
+    if (mat !== "glass") m.add(new THREE.Mesh(geo, OUTLINE_MAT));
     m.castShadow = true;
     m.receiveShadow = mat !== "glass";
     meshes[body].push(m);
     world.add(m);
   });
+  // the edge lines ride on their body exactly like its meshes
+  if (cadEdges) {
+    for (const [body, geo] of Object.entries(cadEdges)) {
+      if (!meshes[body]) continue;
+      const lines = new THREE.LineSegments(geo, EDGE_MAT);
+      meshes[body].push(lines);
+      world.add(lines);
+    }
+  }
 
   // ---------- rig ----------
   const colPivot = new THREE.Group();
@@ -158,39 +225,41 @@ async function init(root) {
 
   // ---------- timeline ----------
   const UP = 0.085;                                        // carriage lift (m)
-  const SEL_SMALL = THREE.MathUtils.degToRad(-120);        // a smaller cup cluster pointing down
+  const SEL_2MM = THREE.MathUtils.degToRad(rig.selector_axis.angle_2mm_deg);   // measured: 2 mm cups in the working position
   const qp = new URLSearchParams(location.search);
   const num = (k, d) => (qp.has(k) ? parseFloat(qp.get(k)) : d);
   const B = { th1: THREE.MathUtils.degToRad(num("th1", -25)), th2: THREE.MathUtils.degToRad(num("th2", -30)) };
   // key poses: [time s, th1, dy, th2, sel]
   const K = [
-    [0.0, 0, UP, 0, SEL_SMALL],
-    [1.0, 0, UP, 0, SEL_SMALL],
-    [2.3, 0, UP, 0, 0],          // select the 4 mm cups for the large part
-    [3.3, 0, 0, 0, 0],           // lower onto the quartz
-    [3.9, 0, 0, 0, 0],           // vacuum on
-    [4.9, 0, UP, 0, 0],          // lift
-    [7.5, B.th1, UP, B.th2, 0],  // swing to spot B
-    [8.5, B.th1, 0, B.th2, 0],   // lower
-    [9.1, B.th1, 0, B.th2, 0],   // release
-    [10.1, B.th1, UP, B.th2, 0], // lift
-    [10.7, B.th1, UP, B.th2, 0],
-    [11.7, B.th1, 0, B.th2, 0],  // lower again
-    [12.3, B.th1, 0, B.th2, 0],  // vacuum on
-    [13.3, B.th1, UP, B.th2, 0], // lift
-    [15.9, 0, UP, 0, 0],         // swing back to spot A
-    [16.9, 0, 0, 0, 0],          // lower
-    [17.5, 0, 0, 0, 0],          // release
-    [18.5, 0, UP, 0, 0],         // lift
-    [19.8, 0, UP, 0, SEL_SMALL], // back to the small cups
+    [0.0, 0, UP, 0, 0],                // 4 mm cups down, hovering over the quartz
+    [0.8, 0, UP, 0, 0],
+    [1.8, 0, 0, 0, 0],                 // lower onto the quartz
+    [2.4, 0, 0, 0, 0],                 // vacuum on
+    [3.4, 0, UP, 0, 0],                // lift
+    [6.0, B.th1, UP, B.th2, 0],        // swing to spot B
+    [7.0, B.th1, 0, B.th2, 0],         // lower
+    [7.6, B.th1, 0, B.th2, 0],         // release
+    [8.6, B.th1, UP, B.th2, 0],        // lift
+    [9.0, B.th1, UP, B.th2, 0],
+    [10.3, B.th1, UP, B.th2, SEL_2MM], // switch to the 2 mm cups
+    [11.0, B.th1, UP, B.th2, SEL_2MM],
+    [12.3, B.th1, UP, B.th2, 0],       // back to the 4 mm cups
+    [12.7, B.th1, UP, B.th2, 0],
+    [13.7, B.th1, 0, B.th2, 0],        // lower again
+    [14.3, B.th1, 0, B.th2, 0],        // vacuum on
+    [15.3, B.th1, UP, B.th2, 0],       // lift
+    [17.9, 0, UP, 0, 0],               // swing back to spot A
+    [18.9, 0, 0, 0, 0],                // lower
+    [19.5, 0, 0, 0, 0],                // release
+    [20.5, 0, UP, 0, 0],               // lift, ready to loop
   ];
   const LOOP = K[K.length - 1][0];
-  const CARRY = [[3.6, 8.8], [12.0, 17.2]];
+  const CARRY = [[2.1, 7.3], [14.0, 19.2]];
   const LABELS = [
-    [1.0, "Ready over the quartz"], [2.3, "Selecting the 4 mm cups"], [3.3, "Lowering onto the quartz"],
-    [3.9, "Vacuum on, picking it up"], [7.5, "Moving the part"], [8.5, "Setting it down"], [10.1, "Releasing"],
-    [11.7, "Lowering again"], [12.3, "Vacuum on, picking it up"], [15.9, "Returning the part"], [16.9, "Setting it down"],
-    [18.5, "Releasing"], [LOOP, "Switching back to smaller cups"],
+    [0.8, "Ready over the quartz"], [1.8, "Lowering the 4 mm cups"], [2.4, "Vacuum on, picking it up"],
+    [6.0, "Moving the part"], [7.0, "Setting it down"], [9.0, "Releasing"],
+    [11.0, "Switching to the 2 mm cups"], [12.7, "Switching back to the 4 mm cups"], [13.7, "Lowering again"],
+    [14.3, "Vacuum on, picking it up"], [17.9, "Returning the part"], [18.9, "Setting it down"], [LOOP, "Releasing"],
   ];
   const ease = (x) => x * x * (3 - 2 * x);
   function pose(t) {
@@ -209,7 +278,7 @@ async function init(root) {
   }
 
   // quartz pose when resting at spot B = selector pose at the release moment x relative transform
-  applyPose(8.6);
+  applyPose(7.3);
   scene.updateMatrixWorld(true);
   worldInv.copy(world.matrixWorld).invert();
   const quartzAtB = new THREE.Matrix4().copy(worldInv).multiply(selPivot.matrixWorld).multiply(quartzInSel);
@@ -242,6 +311,9 @@ async function init(root) {
   function resize() {
     const w = stage.clientWidth, h = stage.clientHeight;
     renderer.setSize(w, h, false);
+    const pr = renderer.getPixelRatio();
+    OUTLINE_MAT.uniforms.res.value.set(w * pr, h * pr);
+    OUTLINE_MAT.uniforms.width.value = 0.8 * pr;
     camera.aspect = w / h;
     camera.updateProjectionMatrix();
   }
