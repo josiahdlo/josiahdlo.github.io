@@ -177,16 +177,33 @@
 
           <section id="imems">
             <h2>IMEMS-inspired revision</h2>
-            <div class="callout"><p><strong>In progress.</strong> I’m revising this design, rebuilding the CAD, and re-running the simulations. The figures below show the current draft.</p></div>
-            <p>This revision moves the sensor to a process <strong>inspired by Sandia’s IMEMS</strong>, which builds MEMS inside a KOH-etched trench beside the CMOS readout circuits on one chip. Sandia’s exact process isn’t public, so this flow follows the same general approach without being their process. The current draft uses <strong>13 mask layers</strong>. Every moving part becomes a 4 µm laminate of two polysilicon layers, the comb gaps shrink to 1 µm, and polysilicon studs carry each signal up to the CMOS aluminium wiring. The epoxy seal carries over: dots over the sense diaphragm’s release holes trap air at about 1 atm, and matching dots keep the vented reference just as stiff.</p>
+            <div class="callout"><p><strong>In progress.</strong> The version 4.1 CAD is done, and the simulations are next. Until then, the numbers in this section come from hand calculations and a beam model.</p></div>
+            <p>This revision moves the sensor to a process <strong>inspired by Sandia’s IMEMS</strong>, which builds MEMS inside a KOH-etched trench beside the CMOS readout circuits on one chip. Sandia’s exact process isn’t public, so this flow follows the same general approach without being their process. In version 4.1, the MEMS takes <strong>9 process steps</strong> inside a 14.6 µm deep trench, and polysilicon studs carry each signal up to the CMOS aluminium wiring. The main changes from the earlier draft:</p>
+            <ul>
+              <li><strong>A vacuum seal instead of epoxy.</strong> The cavity is emptied through a side port, then LPCVD nitride pinches the port’s two 1 µm slots shut, sealing the cavity near vacuum. The diaphragm no longer needs release holes or epoxy dots. The sense and reference units are now identical, except that the reference’s port is reopened at the end so its cavity vents.</li>
+              <li><strong>One 6 µm resonator layer.</strong> A single polished 6 µm polysilicon layer replaces the laminated tines, keeping 1 µm comb gaps with 1.5× the comb area.</li>
+              <li><strong>A released root on a short neck.</strong> The block that joins the tines is held by one 6 × 8 µm neck. In the beam model, this leaves the operating mode unchanged and moves the unwanted in-phase mode 3% (21 kHz) below it.</li>
+              <li><strong>Flat layers and anti-stiction features.</strong> Each oxide layer and the resonator layer are polished flat, and dimples plus supercritical CO<sub>2</sub> drying after each HF release keep parts from sticking.</li>
+            </ul>
             <figure class="fig">
-              <a href="../assets/img/mems/imems-section.webp" data-zoom><img src="../assets/img/mems/imems-section.webp" width="1720" height="978" alt="Labeled draft cross-section of the IMEMS-inspired sense unit: sealed diaphragm with epoxy dots in a KOH trench, the lever plate and tine above a Poly0 ground plane, and a polysilicon stud connecting to aluminium metal 1" loading="lazy"></a>
-              <figcaption>Draft cross-section of the sense unit, from the sealed diaphragm to the stud that connects to the CMOS wiring (vertical scale exaggerated about 7×)</figcaption>
+              <a href="../assets/img/mems/v41-sense.webp" data-zoom><img src="../assets/img/mems/v41-sense.webp" width="1600" height="1000" alt="3D model of the v4.1 sense unit: the diaphragm, lever plate, and comb-driven tuning fork in a release window in the nitride cap, with metal-1 lines running toward the CMOS area" loading="lazy"></a>
+              <figcaption>The v4.1 sense unit in 3D: diaphragm, lever plate, and tuning fork in the release window, with metal-1 lines running to the CMOS area (heights exaggerated)</figcaption>
             </figure>
+            <div class="fig-row">
+              <figure class="fig">
+                <a href="../assets/img/mems/v41-port-seal.webp" data-zoom><img src="../assets/img/mems/v41-port-seal.webp" width="1600" height="1000" alt="Close-up of the port seal: nitride plugs filling two slots in the polysilicon channel roof, under a nitride seal cap" loading="lazy"></a>
+                <figcaption>The port seal: nitride plugs fill the two 1 µm slots under the seal cap</figcaption>
+              </figure>
+              <figure class="fig">
+                <a href="../assets/img/mems/v41-root-neck.webp" data-zoom><img src="../assets/img/mems/v41-root-neck.webp" width="1600" height="1000" alt="Close-up of the released root block with release holes, joined to the tines and held by a short neck on its anchor" loading="lazy"></a>
+                <figcaption>The released root block, held by its 6 × 8 µm neck</figcaption>
+              </figure>
+            </div>
             <figure class="fig">
-              <a href="../assets/img/mems/imems-top.webp" data-zoom><img src="../assets/img/mems/imems-top.webp" width="1720" height="1160" alt="To-scale draft top view of the IMEMS-inspired sense unit with the diaphragm, epoxy dots, lever plate, 184 µm tines, sense and drive combs, and studs, all labeled" loading="lazy"></a>
-              <figcaption>Draft top view of the sense unit, to scale</figcaption>
+              <a href="../assets/img/mems/v41-section.webp" data-zoom><img src="../assets/img/mems/v41-section.webp" width="2000" height="1356" alt="Labeled cross-section of the finished v4.1 sense unit: hole-free diaphragm over a vacuum cavity, the sealed port, the 6 µm lever plate and tine, the released root block and neck, and the rotor stud up to metal 1" loading="lazy"></a>
+              <figcaption>Cross-section of the finished sense unit, from the sealed port to the stud that connects to the CMOS wiring (vertical scale ×7)</figcaption>
             </figure>
+            <p>The solid FEA will check the scale factor under the 1 atm standing load and confirm the mode split from the beam model.</p>
           </section>
         </article>
       </div>
@@ -203,8 +220,11 @@
           <figure><a href="../assets/img/mems/final-cad.webp" data-zoom><img class="fit" src="../assets/img/mems/final-cad.webp" width="1793" height="1800" alt="Final layout CAD of the die" loading="lazy"></a><figcaption>Final layout CAD</figcaption></figure>
           <figure><a href="../assets/img/mems/mask-table.webp" data-zoom><img class="fit" src="../assets/img/mems/mask-table.webp" width="1162" height="587" alt="Table of the 8 PolyMUMPs masks and what each defines" loading="lazy"></a><figcaption>The 8 masks and what each one defines</figcaption></figure>
           <figure><a href="../assets/img/mems/sections-all.webp" data-zoom><img class="fit" src="../assets/img/mems/sections-all.webp" width="1800" height="1371" alt="All simulated cross-sections through the die" loading="lazy"></a><figcaption>All simulated cross-sections</figcaption></figure>
-          <figure><a href="../assets/img/mems/imems-steps.webp" data-zoom><img class="fit" src="../assets/img/mems/imems-steps.webp" width="2200" height="1613" alt="Eight-step draft of the IMEMS-inspired process flow, from the KOH trench etch through the polysilicon layers, studs, CMOS metal, release, and epoxy seal" loading="lazy"></a><figcaption>Draft IMEMS-inspired process flow in eight steps</figcaption></figure>
-          <figure><a href="../assets/img/mems/imems-comb.webp" data-zoom><img class="fit" src="../assets/img/mems/imems-comb.webp" width="1720" height="668" alt="Comb-drive detail for the draft IMEMS-inspired design: 1 µm rotor and stator fingers with 1 µm gaps and 4 µm pitch" loading="lazy"></a><figcaption>Draft comb detail: 1 µm fingers and gaps</figcaption></figure>
+          <figure><a href="../assets/img/mems/v41-sense-open.webp" data-zoom><img class="fit" src="../assets/img/mems/v41-sense-open.webp" width="1600" height="1000" alt="3D model of the v4.1 sense unit with the cap hidden, showing the stud stacks and metal-1 lines around the tuning fork" loading="lazy"></a><figcaption>v4.1 sense unit with the cap hidden, showing the stud stacks and metal-1 lines</figcaption></figure>
+          <figure><a href="../assets/img/mems/v41-modes.webp" data-zoom><img class="fit" src="../assets/img/mems/v41-modes.webp" width="2000" height="1482" alt="Drawing of the v4.1 outer root and neck, with beam-model mode shapes for the anti-phase, in-phase, and out-of-plane modes" loading="lazy"></a><figcaption>v4.1 root and neck, with mode shapes from the beam model</figcaption></figure>
+          <figure><a href="../assets/img/mems/v41-flow-1.webp" data-zoom><img class="fit" src="../assets/img/mems/v41-flow-1.webp" width="1868" height="1596" alt="v4.1 process flow steps 1 to 3: KOH trench and floor nitride, Poly0 and cavity oxide, and the hole-free Poly1 diaphragm" loading="lazy"></a><figcaption>v4.1 process, steps 1–3: trench, ground plane, and diaphragm</figcaption></figure>
+          <figure><a href="../assets/img/mems/v41-flow-2.webp" data-zoom><img class="fit" src="../assets/img/mems/v41-flow-2.webp" width="1868" height="1596" alt="v4.1 process flow steps 4 to 6: cavity release through the port, the LPCVD vacuum seal, and oxide 2 with dimple molds and vias" loading="lazy"></a><figcaption>Steps 4–6: cavity release and the vacuum seal</figcaption></figure>
+          <figure><a href="../assets/img/mems/v41-flow-3.webp" data-zoom><img class="fit" src="../assets/img/mems/v41-flow-3.webp" width="1868" height="1596" alt="v4.1 process flow steps 7 to 9: the 6 µm resonator layer, stud, refill, cap and metal 1, and the final release" loading="lazy"></a><figcaption>Steps 7–9: resonator layer, wiring, and final release</figcaption></figure>
         </div>
       </div>
     </section>

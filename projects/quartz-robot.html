@@ -52,7 +52,7 @@
         </a>
         <p class="phero__eyebrow"><span class="pill">In progress</span> <span class="label">Lam Research–sponsored senior design · Robotics · Vacuum handling</span></p>
         <h1 class="phero__title">Quartz Manipulation Robot</h1>
-        <p class="phero__lead">A 3-axis SCARA-style pick-and-place robot with an automatic vacuum cup selector, for handling high-finish quartz components during semiconductor equipment assembly. Our team of four is designing it for Lam Research in UC Berkeley’s industry-sponsored senior design course. I’m designing the vacuum cup selector that gives the robot the right cup for each part.</p>
+        <p class="phero__lead">A 3-axis SCARA-style pick-and-place robot with an automatic vacuum cup selector, for handling high-finish quartz components during semiconductor equipment assembly. Our team of four designed and built it for Lam Research in UC Berkeley’s industry-sponsored senior design course, and we’re now testing it. I designed the vacuum cup selector that gives the robot the right cup for each part.</p>
         <dl class="meta">
           <div><dt class="label">My role</dt><dd>Vacuum cup selector design</dd></div>
           <div><dt class="label">Team</dt><dd>4 students</dd></div>
@@ -108,13 +108,14 @@
             <li><a href="#system">System design</a></li>
             <li><a href="#selector">Vacuum cup selector</a></li>
             <li><a href="#progress">Design progress</a></li>
+            <li><a href="#build">Build and first test</a></li>
             <li><a href="#next">What’s next</a></li>
             <li><a href="#gallery">Gallery</a></li>
           </ol>
         </nav>
 
         <article class="prose">
-          <div class="callout"><p><strong>In progress.</strong> This page shows our near-final CAD (November 2026). I’ll update it as we build and test the robot.</p></div>
+          <div class="callout"><p><strong>In progress.</strong> We finished building the robot in November 2026 and have started testing it. See <a href="#build">Build and first test</a> for photos and video of the real robot.</p></div>
 
           <section id="brief">
             <h2>The challenge</h2>
@@ -196,12 +197,44 @@
             </div>
           </section>
 
+          <section id="build">
+            <h2>Build and first test</h2>
+            <p>We assembled the full robot in November 2026. In our first test, the vacuum cups picked up a small clear test piece and held it while the robot carried it.</p>
+            <figure class="fig">
+              <a href="../assets/img/lamq/build-side.webp" data-zoom><img src="../assets/img/lamq/build-side.webp" width="1600" height="1200" alt="Photo of the finished robot from the side: the base, the vertical lead-screw axis, the arm, and the cup selector over a clear plate" loading="lazy"></a>
+              <figcaption>The finished robot (November 2026)</figcaption>
+            </figure>
+            <div class="fig-row fig-row--photo">
+              <figure class="fig">
+                <video class="fig__video" autoplay muted loop playsinline preload="metadata" poster="../assets/img/lamq/test-pick-poster.webp" width="720" height="960" aria-label="Video of the robot's first test: the vacuum cups hold a small clear piece while the robot turns and moves its arm">
+                  <source src="../assets/img/lamq/test-pick.mp4" type="video/mp4">
+                </video>
+                <figcaption>First test: the cups hold a small clear piece while the robot carries it</figcaption>
+              </figure>
+              <figure class="fig">
+                <a href="../assets/img/lamq/build-cups.webp" data-zoom><img src="../assets/img/lamq/build-cups.webp" width="900" height="1200" alt="Close-up photo of the cup selector holding a small clear piece on its cups" loading="lazy"></a>
+                <figcaption>The cup selector holding the test piece</figcaption>
+              </figure>
+            </div>
+            <p>Two days earlier, the vertical axis and arm were assembled, but the electronics were still spread out on the bench and the cup selector wasn’t mounted yet.</p>
+            <div class="fig-row fig-row--photo">
+              <figure class="fig">
+                <a href="../assets/img/lamq/build-early.webp" data-zoom><img src="../assets/img/lamq/build-early.webp" width="900" height="1200" alt="The partly built robot on a bench: the vertical axis and arm assembled, with wiring, the pump, and the unmounted cup selector on the table" loading="lazy"></a>
+                <figcaption>November 21: vertical axis and arm assembled, electronics still on the bench</figcaption>
+              </figure>
+              <figure class="fig">
+                <a href="../assets/img/lamq/build-wiring.webp" data-zoom><img src="../assets/img/lamq/build-wiring.webp" width="900" height="1200" alt="Wiring the control electronics inside the robot's base, with labeled wires and a breadboard" loading="lazy"></a>
+                <figcaption>November 22: wiring the control electronics into the base</figcaption>
+              </figure>
+            </div>
+          </section>
+
           <section id="next">
             <h2>What’s next</h2>
             <p>The remaining goals from the project brief:</p>
             <ul>
               <li>Predict the lifting capability of each nozzle size, and the highest allowable load per mm² of nozzle opening at a factor of safety of 2.</li>
-              <li>Build the robot and demonstrate automatic cup selection based on each component’s weight.</li>
+              <li>Keep testing the robot and demonstrate automatic cup selection based on each component’s weight.</li>
               <li>Present the final design to Lam Research representatives at the end of the semester.</li>
             </ul>
           </section>
