@@ -802,6 +802,25 @@ p { margin: 0 0 1em; }
   .card--flip .card__media { border-left: 0; }
 }
 
+/* Lam-Q card: the CAD and the built robot side by side */
+.card__media--duo { display: flex; align-items: center; justify-content: center; gap: 14px; padding: 46px 22px 30px; background: #e6e6e6; }
+.card--wide .card__media--duo { flex-basis: 54%; }
+.duo { display: flex; flex: var(--ar) 1 0; flex-direction: column; gap: 8px; min-width: 0; }
+.card__media--duo img, .card--wide .card__media--duo img {
+  position: static;
+  width: 100%;
+  height: auto;
+  padding: 0;
+  object-fit: contain;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+}
+.card:hover .card__media--duo img { transform: none; }
+@media (max-width: 820px) {
+  .card--wide .card__media--duo { flex: none; aspect-ratio: auto; padding: 46px 16px 18px; gap: 10px; }
+}
+
 /* "In progress" status pill */
 .pill {
   display: inline-flex;
