@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Differential Resonant MEMS Pressure Sensor — Josiah Lo</title>
-  <meta name="description" content="A comb-driven double-ended tuning fork pressure sensor with differential FM output, designed for the PolyMUMPs process: 8-mask 1 mm² layout verified against design rules and a 2-D process simulation.">
+  <meta name="description" content="A comb-driven double-ended tuning fork pressure sensor with differential frequency output, designed for an IMEMS-inspired MEMS + CMOS process and verified with Ansys FEA across pressure and temperature.">
   <link rel="canonical" href="https://josiahdlo.github.io/projects/mems-pressure-sensor.html">
   <meta property="og:type" content="article">
   <meta property="og:title" content="Differential Resonant MEMS Pressure Sensor — Josiah Lo">
-  <meta property="og:description" content="Sealed and vented diaphragms each strain a comb-driven tuning fork; comparing the two cancels temperature drift. PolyMUMPs layout, tuning-fork sizing, and process simulation.">
+  <meta property="og:description" content="A vacuum-sealed and a vented diaphragm each strain a comb-driven tuning fork; comparing the two cancels temperature drift. Final design, masks, and Ansys FEA.">
   <meta property="og:url" content="https://josiahdlo.github.io/projects/mems-pressure-sensor.html">
   <meta property="og:image" content="https://josiahdlo.github.io/assets/img/og-v2.jpg">
   <meta name="twitter:card" content="summary_large_image">
@@ -49,44 +49,44 @@
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 19l-7-7 7-7"/></svg>
           All projects
         </a>
-        <p class="phero__eyebrow label">UC Berkeley MEMS design project · MEMS · Microfabrication</p>
+        <p class="phero__eyebrow label">UC Berkeley MEMS design project · MEMS · Microfabrication · FEA</p>
         <h1 class="phero__title">Differential Resonant MEMS Pressure Sensor</h1>
-        <p class="phero__lead">A comb-driven tuning-fork pressure sensor with differential FM output, designed for the PolyMUMPs surface-micromachining process. A sealed and a vented polysilicon diaphragm each strain their own tuning fork, and comparing the two frequencies cancels temperature drift and packaging-stress bias. I sized the tuning fork, laid out the 8-mask, 1 mm² die, and checked the design with modal FEA in Ansys. I’m now revising it for a process inspired by Sandia’s IMEMS, which builds MEMS beside CMOS circuits on one chip.</p>
+        <p class="phero__lead">A comb-driven tuning-fork pressure sensor with a differential frequency output, designed for a MEMS-plus-CMOS process inspired by Sandia’s IMEMS. A vacuum-sealed diaphragm and an identical vented one each strain their own tuning fork, and subtracting the two frequencies cancels temperature drift. I sized the tuning fork, laid out the masks, and simulated the design in Ansys across pressure and temperature.</p>
         <dl class="meta">
           <div><dt class="label">My work</dt><dd>Tuning-fork sizing, mask layout, Ansys FEA</dd></div>
           <div><dt class="label">Team</dt><dd>2 students</dd></div>
           <div><dt class="label">Timeline</dt><dd>Aug 2026 – Present</dd></div>
-          <div><dt class="label">Process</dt><dd>PolyMUMPs, now IMEMS-inspired</dd></div>
+          <div><dt class="label">Process</dt><dd>IMEMS-inspired MEMS + CMOS</dd></div>
         </dl>
       </div>
     </section>
 
     <div class="wrap">
       <figure class="cover cover--cad">
-        <a href="../assets/img/mems/die-3d.webp" data-zoom><img src="../assets/img/mems/die-3d.webp" width="1159" height="751" alt="3D model of the 1 mm PolyMUMPs die: two matching units, each with a circular diaphragm carrying epoxy dots, a comb-driven tuning fork, and wiring to seven bond pads"></a>
-        <figcaption class="label">3D model of the 1 mm × 1 mm die: two matching diaphragm and tuning-fork units wired to seven bond pads</figcaption>
+        <a href="../assets/img/mems/final-die.webp" data-zoom><img src="../assets/img/mems/final-die.webp" width="1409" height="845" alt="CAD of the final 1 mm die with the cap hidden: two matching units, each with a circular diaphragm, a lever plate, and a comb-driven tuning fork in a KOH trench, with stud stacks and metal-1 lines running to the CMOS area"></a>
+        <figcaption class="label">Final design: two matching diaphragm and tuning-fork units in their trenches, wired out to the on-chip CMOS area (cap hidden)</figcaption>
       </figure>
 
       <div class="results" style="--cols:4">
         <div class="stat">
-          <span class="label">Die</span>
-          <div class="stat__num">1 <small>mm²</small></div>
-          <p class="stat__text">8-mask PolyMUMPs layout with seven bond pads</p>
-        </div>
-        <div class="stat">
           <span class="label">Resonance</span>
-          <div class="stat__num">626 <small>kHz</small></div>
-          <p class="stat__text">Tine mode in Ansys, within 7% of the 670 kHz hand calculation</p>
+          <div class="stat__num">670 <small>kHz</small></div>
+          <p class="stat__text">Anti-phase tine mode in Ansys</p>
         </div>
         <div class="stat">
           <span class="label">Sensitivity</span>
-          <div class="stat__num">80 <small>Hz/kPa</small></div>
-          <p class="stat__text">Differential output in Ansys: an 8.1 kHz shift at 1 atm</p>
+          <div class="stat__num">50.9 <small>Hz/kPa</small></div>
+          <p class="stat__text">Differential output from 0 to 1 atm, within 1.1 Hz of a straight line</p>
         </div>
         <div class="stat">
-          <span class="label">Buckling</span>
-          <div class="stat__num">2× <small>margin</small></div>
-          <p class="stat__text">Held while resizing the tuning fork</p>
+          <span class="label">Temperature</span>
+          <div class="stat__num">115× <small>less drift</small></div>
+          <p class="stat__text">In the differential output than in either fork alone, −35 to 85 °C</p>
+        </div>
+        <div class="stat">
+          <span class="label">Die</span>
+          <div class="stat__num">1 <small>mm²</small></div>
+          <p class="stat__text">9-step MEMS process and 15 mask layers, with room for the CMOS readout</p>
         </div>
       </div>
 
@@ -95,11 +95,9 @@
           <span class="label">On this page</span>
           <ol>
             <li><a href="#concept">How it works</a></li>
-            <li><a href="#sizing">Sizing the tuning fork</a></li>
-            <li><a href="#layout">Layout &amp; design rules</a></li>
-            <li><a href="#process">Process simulation</a></li>
-            <li><a href="#fea">Ansys modal FEA</a></li>
-            <li><a href="#imems">IMEMS-inspired revision</a></li>
+            <li><a href="#design">Final design</a></li>
+            <li><a href="#fea">Ansys FEA</a></li>
+            <li><a href="#evolution">How the design evolved</a></li>
             <li><a href="#gallery">Gallery</a></li>
           </ol>
         </nav>
@@ -107,103 +105,120 @@
         <article class="prose">
           <section id="concept">
             <h2>How it works</h2>
-            <p>The die holds two matching halves. In each one, a polysilicon diaphragm connects to a comb-driven <strong>double-ended tuning fork (DETF)</strong>. Its two tines vibrate equally and in antiphase, so the net force on the anchors and substrate is nearly zero, which gives the resonator a high quality factor.</p>
-            <p>The measurement diaphragm’s cavity is sealed after release. As outside pressure changes, it deflects, straining its tuning fork and shifting the fork’s frequency. The reference diaphragm is left unsealed, so its fork provides a reference frequency that sees the same temperature and packaging stress. The pressure comes from the difference between the two frequencies:</p>
-            <div class="callout"><p><strong>Δf = f<sub>measure</sub> − f<sub>ref</sub>,&nbsp; P = P<sub>seal</sub> + K(Δf − Δf<sub>0</sub>)</strong></p></div>
+            <p>The die holds two matching units. In each one, a polysilicon diaphragm pushes on a comb-driven <strong>double-ended tuning fork (DETF)</strong> through a lever plate. The fork’s two tines vibrate equally and in antiphase, so the net force on the anchors is nearly zero, which gives the resonator a high quality factor.</p>
             <figure class="fig">
-              <a href="../assets/img/mems/poster.webp" data-zoom><img src="../assets/img/mems/poster.webp" width="2000" height="1125" alt="Project poster: Comb Driven DETF Pressure Sensor with Differential FM Output, showing the cross-section, the layout, and the driving and sensing combs" loading="lazy"></a>
-              <figcaption>Our project poster, explaining the comb-driven DETF and the differential layout</figcaption>
+              <video class="fig__video" autoplay muted loop playsinline preload="metadata" poster="../assets/img/mems/tine-final-poster.webp" width="1280" height="536" aria-label="Ansys animation of the anti-phase tine mode: the two tines bow apart and together while the diaphragm stays still">
+                <source src="../assets/img/mems/tine-final.mp4" type="video/mp4">
+              </video>
+              <figcaption>The anti-phase tine mode in Ansys: the two tines bow apart and together (motion exaggerated and slowed down)</figcaption>
+            </figure>
+            <p>The SENSE diaphragm seals a near-vacuum cavity, so outside pressure bends it, strains its fork, and raises the fork’s frequency. The REF unit is identical but vented, so its fork sees the same temperature and packaging stress without the pressure. The readout is the difference between the two frequencies:</p>
+            <div class="callout"><p><strong>Δf = f<sub>SENSE</sub> − f<sub>REF</sub>,&nbsp; P = (Δf − Δf<sub>0</sub>) / K,</strong> with K = 50.9 Hz/kPa from the FEA</p></div>
+            <figure class="fig">
+              <a href="../assets/img/mems/final-sense.webp" data-zoom><img src="../assets/img/mems/final-sense.webp" width="1398" height="830" alt="CAD close-up of the sense unit with the cap hidden: the circular diaphragm, the lever plate, the tuning fork with its sense and drive combs, and the stud stacks connected to metal-1 lines" loading="lazy"></a>
+              <figcaption>The sense unit in CAD (cap hidden): diaphragm, lever plate, tuning fork with its comb drives, and the stud stacks that carry each signal up to the metal-1 wiring</figcaption>
             </figure>
           </section>
 
-          <section id="sizing">
-            <h2>Sizing the tuning fork</h2>
-            <p>I sized the tuning fork through hand calculations and beam FEA of its <strong>stiffness, buckling, air damping, and stress stiffening</strong>. Lengthening the flexures from <strong>18 to 60 µm</strong> lowered the resonance from <strong>3.2 MHz to 670 kHz</strong> and raised pressure sensitivity <strong>4.6×</strong>, while holding a <strong>2× buckling margin</strong>. The tines grew from 100 to 184 µm, and the shuttle and comb drives stayed the same.</p>
+          <section id="design">
+            <h2>Final design</h2>
+            <p>The sensor is built for a process <strong>inspired by Sandia’s IMEMS</strong>, which builds MEMS inside a KOH-etched trench beside the CMOS readout circuits on one chip. Sandia’s exact process isn’t public, so this flow follows the same general approach without being their process. The final design (version 4.2) builds the MEMS in <strong>9 process steps</strong> inside a 14.6 µm deep trench, and its <strong>15-layer mask set</strong> passes all of its automated layout checks.</p>
+            <ul>
+              <li><strong>A vacuum seal, with no epoxy.</strong> The cavity is emptied through a side port, then LPCVD nitride pinches the port’s two 1 µm slots shut, sealing the cavity near vacuum. The diaphragm needs no release holes or epoxy, and the REF unit’s port is reopened at the end so its cavity vents.</li>
+              <li><strong>One 6 µm resonator layer.</strong> A single polished 6 µm polysilicon layer forms the lever plate, the 3 × 184 µm tines, and combs with 1 µm fingers and gaps.</li>
+              <li><strong>A solid root block on a short neck.</strong> The block that joins the tines is released and held by one 6 × 8 µm neck, which moves the unwanted in-phase mode away from the operating mode.</li>
+              <li><strong>Flat layers and anti-stiction features.</strong> Each oxide layer and the resonator layer are polished flat, and dimples plus supercritical CO<sub>2</sub> drying after each HF release keep parts from sticking.</li>
+            </ul>
             <figure class="fig">
-              <a href="../assets/img/mems/detf-zoom.webp" data-zoom><img src="../assets/img/mems/detf-zoom.webp" width="1162" height="857" alt="Zoomed layout of the sense tuning fork showing the 60 µm flexures, comb drives, anchors, and the anchor plate on the diaphragm" loading="lazy"></a>
-              <figcaption>The sense tuning fork: 60 µm flexures, comb drives, and the anchor plate that connects it to the diaphragm</figcaption>
+              <a href="../assets/img/mems/final-die-cap.webp" data-zoom><img src="../assets/img/mems/final-die-cap.webp" width="1602" height="845" alt="CAD of the final die with its nitride cap in place: each tuning fork sits in a release window, and metal-1 lines run across the cap" loading="lazy"></a>
+              <figcaption>The die with its nitride cap: each device sits in a release window, and metal-1 lines run out to the CMOS area</figcaption>
             </figure>
-          </section>
-
-          <section id="layout">
-            <h2>Layout &amp; design rules</h2>
-            <p>I laid out all <strong>8 PolyMUMPs masks</strong> for the 1 mm × 1 mm die and exported them as DXF and GDS files. The layout passes the PolyMUMPs <strong>minimum-feature, spacing, and level-to-level rules</strong>, with no shorts between pads and every structure connected to a pad and anchored.</p>
-            <p>Meeting the rules took several changes, such as widening the tines from 2 to 3 µm, since the foundry advises against long, isolated 2 µm lines. One deliberate waiver remains: each diaphragm releases through only four center holes, so the farthest oxide sits about 56 µm from a hole and needs a longer HF release.</p>
+            <div class="fig-row">
+              <figure class="fig">
+                <a href="../assets/img/mems/v42-port-seal.webp" data-zoom><img src="../assets/img/mems/v42-port-seal.webp" width="1600" height="1000" alt="Close-up render of the port seal: nitride plugs filling two slots in the polysilicon channel roof, under a nitride seal cap" loading="lazy"></a>
+                <figcaption>The port seal: nitride plugs fill the two 1 µm slots under the seal cap</figcaption>
+              </figure>
+              <figure class="fig">
+                <a href="../assets/img/mems/v42-root-neck.webp" data-zoom><img src="../assets/img/mems/v42-root-neck.webp" width="1600" height="1000" alt="Close-up render of the solid root block joined to the tines and held by a short neck on its anchor" loading="lazy"></a>
+                <figcaption>The solid root block, held by its 6 × 8 µm neck</figcaption>
+              </figure>
+            </div>
             <figure class="fig">
-              <a href="../assets/img/mems/layout-labeled.webp" data-zoom><img class="tall" src="../assets/img/mems/layout-labeled.webp" width="1187" height="1248" alt="PolyMUMPs mask layout of the 1 mm die: the sensing half with its sealed diaphragm on top, the reference half with its vented diaphragm below, and seven bond pads" loading="lazy"></a>
-              <figcaption>The mask layout: sealed sense half on top, vented reference half below</figcaption>
+              <a href="../assets/img/mems/v42-section.webp" data-zoom><img src="../assets/img/mems/v42-section.webp" width="2000" height="1356" alt="Labeled cross-section of the finished sense unit: hole-free diaphragm over a vacuum cavity, the sealed port, the 6 µm lever plate and tine, the root block and neck, and the rotor stud up to metal 1" loading="lazy"></a>
+              <figcaption>Cross-section of the finished sense unit, from the sealed port to the stud that connects to the CMOS wiring (vertical scale ×7)</figcaption>
             </figure>
-          </section>
-
-          <section id="process">
-            <h2>Process simulation</h2>
-            <p>To confirm the masks build the intended structure, the layout was checked against a <strong>2-D simulation of the PolyMUMPs process</strong> along several cuts through the die: conformal LPCVD deposition, anisotropic RIE, and the HF release. Every section shows contacts only where intended, with the tines released <strong>2.75 µm</strong> above the ground plane and <strong>2 µm</strong> lateral gaps between comb fingers.</p>
             <figure class="fig">
-              <a href="../assets/img/mems/sections.webp" data-zoom><img src="../assets/img/mems/sections.webp" width="1800" height="522" alt="Simulated cross-sections along the tuning fork, its anchors, and the comb fingers" loading="lazy"></a>
-              <figcaption>Simulated cross-sections along the tuning fork, its anchors, and the comb fingers (vertical scale exaggerated)</figcaption>
-            </figure>
-            <p>After the foundry run and HF release, the plan is to seal the measurement diaphragm’s holes under a microscope with dots of UV-curing epoxy placed by a fine needle. The cavity seals at about 1 atm, so its reference is trapped air. Matching epoxy dots beside the open reference holes keep both diaphragms equally stiff.</p>
-            <figure class="fig">
-              <a href="../assets/img/mems/flow-release.webp" data-zoom><img src="../assets/img/mems/flow-release.webp" width="1800" height="894" alt="Process-flow steps for the HF release and the UV epoxy seal of the measurement diaphragm" loading="lazy"></a>
-              <figcaption>Release and epoxy-seal steps from the simulated process flow</figcaption>
+              <a href="../assets/img/mems/masks-sense.webp" data-zoom><img src="../assets/img/mems/masks-sense.webp" width="2000" height="1007" alt="Mask layout of the sense unit with all layers shown and labeled: diaphragm, port, lever plate, tines, combs, root block, neck, stator stud stacks, and release window" loading="lazy"></a>
+              <figcaption>Mask layout of the sense unit, all layers. The REF unit is the same plus one vent mask.</figcaption>
             </figure>
           </section>
 
           <section id="fea">
-            <h2>Ansys modal FEA</h2>
-            <p>To check the hand calculations, I took a 3D model of the PolyMUMPs die, built from the mask layout, into <strong>Ansys Mechanical</strong>. A static structural step loads the sealed diaphragm with pressure, and a pre-stressed modal analysis then finds the tine modes of both tuning forks.</p>
+            <h2>Ansys FEA</h2>
+            <p>I simulated both units together in <strong>Ansys Mechanical</strong> with a 5-body model: the substrate, both diaphragms with their channels, and both tuning forks. A large-deflection static structural step loads the SENSE diaphragm with pressure, then a prestressed modal analysis finds each fork’s frequency. I ran <strong>26 pressure points</strong> from 0 to 2.5 atm and a <strong>temperature sweep</strong> from −55 to 85 °C. The model is version 4.1, which differs from the final design only by release holes in the root block.</p>
             <figure class="fig">
-              <video class="fig__video" autoplay muted loop playsinline preload="metadata" poster="../assets/img/mems/tine-mode-poster.webp" width="1100" height="592" aria-label="Ansys animation of the tuning fork’s anti-phase mode: the two tines bow apart and together while the diaphragm stays still">
-                <source src="../assets/img/mems/tine-mode.mp4" type="video/mp4">
-              </video>
-              <figcaption>The anti-phase tine mode in Ansys at 626.8 kHz, on a 71k-element mesh. The motion is exaggerated and slowed down.</figcaption>
+              <a href="../assets/img/mems/fea-mesh.webp" data-zoom><img src="../assets/img/mems/fea-mesh.webp" width="1299" height="691" alt="Ansys mesh on the model: the substrate with two trenches, and the two diaphragm and tuning-fork units meshed more finely" loading="lazy"></a>
+              <figcaption>The Ansys mesh on the 5-body model</figcaption>
             </figure>
+            <figure class="fig">
+              <a href="../assets/img/mems/fea-deform.webp" data-zoom><img src="../assets/img/mems/fea-deform.webp" width="1661" height="691" alt="Ansys total deformation: the sealed SENSE diaphragm bends under pressure and pulls on its tuning fork, while the vented REF unit stays undeformed" loading="lazy"></a>
+              <figcaption>Static structural result: pressure bends only the sealed SENSE diaphragm, which strains its fork, while the vented REF unit stays still</figcaption>
+            </figure>
+            <figure class="fig">
+              <video class="fig__video" autoplay muted loop playsinline preload="metadata" poster="../assets/img/mems/tine-final-mesh-poster.webp" width="1280" height="536" aria-label="Close-up Ansys animation of the anti-phase tine mode on the mesh, with the comb shuttles moving apart and together">
+                <source src="../assets/img/mems/tine-final-mesh.mp4" type="video/mp4">
+              </video>
+              <figcaption>The anti-phase mode up close, with the mesh shown (motion exaggerated and slowed down)</figcaption>
+            </figure>
+
+            <h3>Pressure response</h3>
             <ul>
-              <li>The anti-phase tine mode sits at <strong>626 kHz</strong>, within 7% of the 670 kHz hand calculation.</li>
-              <li>At one atmosphere of pressure difference, the sense fork’s frequency rises <strong>7.8 kHz</strong> while the reference fork moves only 0.3 kHz. That gives a differential output of <strong>80 Hz/kPa</strong>.</li>
-              <li>I refined the mesh from 16k to 94k elements. The last refinement, from 71k elements, changed the pressure response by only <strong>0.2%</strong>.</li>
+              <li>From 0 to 1 atm, the SENSE fork’s frequency rises <strong>5.16 kHz</strong>. The REF fork moves only <strong>3.6 Hz</strong> over the whole sweep.</li>
+              <li>The differential output changes by <strong>50.9 Hz/kPa</strong> (76 ppm/kPa) from 0 to 1 atm and stays within <strong>1.1 Hz</strong> of a straight line, 0.02% of the span. At 2.5 atm, it sits 38 Hz (0.3%) below that line.</li>
+              <li>The model puts SENSE about 290 Hz above REF at 0 kPa, even though the units are identical, most likely from the mesh. That shifts the zero, not the slope.</li>
             </ul>
-            <div class="fig-row">
-              <figure class="fig">
-                <a href="../assets/img/mems/detf-3d.webp" data-zoom><img src="../assets/img/mems/detf-3d.webp" width="1534" height="776" alt="Close-up of the 3D model: the diaphragm with four epoxy dots, the lever plate, and the tuning fork with its comb drives over the ground plane" loading="lazy"></a>
-                <figcaption>The 3D model up close: diaphragm, epoxy dots, lever plate, and tuning fork</figcaption>
-              </figure>
-              <figure class="fig">
-                <a href="../assets/img/mems/ansys-modal.webp" data-zoom><img src="../assets/img/mems/ansys-modal.webp" width="1510" height="882" alt="Ansys Mechanical window showing the static structural and modal analyses, the mesh on the diaphragm and tuning fork, and the table of mode frequencies" loading="lazy"></a>
-                <figcaption>The Ansys setup: static structural, then modal, with the mode table</figcaption>
-              </figure>
-            </div>
+            <figure class="fig">
+              <a href="../assets/img/mems/fea-pressure.webp" data-zoom><img src="../assets/img/mems/fea-pressure.webp" width="1600" height="900" alt="Chart of tuning-fork frequency against pressure from 0 to 253 kPa: SENSE rises steadily from 670.5 to 683.3 kHz while REF stays flat at 670.2 kHz" loading="lazy"></a>
+              <figcaption>SENSE rises with pressure, while the vented REF stays flat</figcaption>
+            </figure>
+            <figure class="fig">
+              <a href="../assets/img/mems/fea-readout-pressure.webp" data-zoom><img src="../assets/img/mems/fea-readout-pressure.webp" width="1600" height="900" alt="Chart of the differential readout, SENSE minus REF, against pressure: a nearly straight line from 290 Hz at 0 kPa to 13,150 Hz at 253 kPa" loading="lazy"></a>
+              <figcaption>The differential readout is nearly linear in pressure</figcaption>
+            </figure>
+
+            <h3>Temperature compensation</h3>
+            <ul>
+              <li>From −35 to 85 °C, each fork drifts about <strong>−16 ppm/K</strong> (−10.7 Hz/K). That matches the −16.1 ppm/K I estimated by hand from the material’s modulus and expansion coefficients.</li>
+              <li>Because both forks drift together, the differential output drifts only <strong>0.093 Hz/K</strong>, about 115× less, or 1.8 Pa/K of apparent pressure.</li>
+              <li>The −45 and −55 °C runs are left out, because they fall below the temperature range of the material data.</li>
+            </ul>
+            <figure class="fig">
+              <a href="../assets/img/mems/fea-temperature.webp" data-zoom><img src="../assets/img/mems/fea-temperature.webp" width="1600" height="900" alt="Chart of frequency change from 22 °C against temperature: SENSE and REF overlap, falling from about +610 Hz at −35 °C to about −670 Hz at 85 °C, while SENSE minus REF stays near zero" loading="lazy"></a>
+              <figcaption>Both forks drift by about 1.3 kHz across the range, but their difference barely moves</figcaption>
+            </figure>
+            <figure class="fig">
+              <a href="../assets/img/mems/fea-readout-temperature.webp" data-zoom><img src="../assets/img/mems/fea-readout-temperature.webp" width="1600" height="900" alt="Chart of the differential readout's change from 22 °C against temperature: a straight line from −5.3 Hz at −35 °C to +5.9 Hz at 85 °C" loading="lazy"></a>
+              <figcaption>The remaining readout drift, zoomed in: about 11 Hz across 120 °C</figcaption>
+            </figure>
+
+            <h3>Mode separation</h3>
+            <p>The wanted anti-phase mode sits at <strong>670.2 kHz</strong>. The in-phase mode that the neck is meant to separate sits <strong>3.2% below</strong> it, at 648.6 kHz, close to the 3.0% the beam model predicted. The nearest out-of-plane mode is 2.1% below, at 655.9 kHz.</p>
           </section>
 
-          <section id="imems">
-            <h2>IMEMS-inspired revision</h2>
-            <div class="callout"><p><strong>In progress.</strong> The version 4.1 CAD is done, and the simulations are next. Until then, the numbers in this section come from hand calculations and a beam model.</p></div>
-            <p>This revision moves the sensor to a process <strong>inspired by Sandia’s IMEMS</strong>, which builds MEMS inside a KOH-etched trench beside the CMOS readout circuits on one chip. Sandia’s exact process isn’t public, so this flow follows the same general approach without being their process. In version 4.1, the MEMS takes <strong>9 process steps</strong> inside a 14.6 µm deep trench, and polysilicon studs carry each signal up to the CMOS aluminium wiring. The main changes from the earlier draft:</p>
-            <ul>
-              <li><strong>A vacuum seal instead of epoxy.</strong> The cavity is emptied through a side port, then LPCVD nitride pinches the port’s two 1 µm slots shut, sealing the cavity near vacuum. The diaphragm no longer needs release holes or epoxy dots. The sense and reference units are now identical, except that the reference’s port is reopened at the end so its cavity vents.</li>
-              <li><strong>One 6 µm resonator layer.</strong> A single polished 6 µm polysilicon layer replaces the laminated tines, keeping 1 µm comb gaps with 1.5× the comb area.</li>
-              <li><strong>A released root on a short neck.</strong> The block that joins the tines is held by one 6 × 8 µm neck. In the beam model, this leaves the operating mode unchanged and moves the unwanted in-phase mode 3% (21 kHz) below it.</li>
-              <li><strong>Flat layers and anti-stiction features.</strong> Each oxide layer and the resonator layer are polished flat, and dimples plus supercritical CO<sub>2</sub> drying after each HF release keep parts from sticking.</li>
-            </ul>
-            <figure class="fig">
-              <a href="../assets/img/mems/v41-sense.webp" data-zoom><img src="../assets/img/mems/v41-sense.webp" width="1600" height="1000" alt="3D model of the v4.1 sense unit: the diaphragm, lever plate, and comb-driven tuning fork in a release window in the nitride cap, with metal-1 lines running toward the CMOS area" loading="lazy"></a>
-              <figcaption>The v4.1 sense unit in 3D: diaphragm, lever plate, and tuning fork in the release window, with metal-1 lines running to the CMOS area (heights exaggerated)</figcaption>
-            </figure>
+          <section id="evolution">
+            <h2>How the design evolved</h2>
+            <p>I started the design in the <strong>PolyMUMPs</strong> surface-micromachining process. I sized the tuning fork with hand calculations and beam FEA: lengthening the flexures from 18 to 60 µm lowered the resonance from 3.2 MHz to 670 kHz and raised pressure sensitivity 4.6×, while holding a 2× buckling margin. I laid out all 8 PolyMUMPs masks for a 1 mm² die that passed the foundry’s design rules, and Ansys modal FEA put the tine mode at 626 kHz, within 7% of the hand calculation.</p>
+            <p>Moving to the IMEMS-inspired process left room for the CMOS readout on the same chip and changed the device itself. The hole-etched diaphragm sealed with dots of epoxy became a hole-free, vacuum-sealed diaphragm, which removes the temperature error from air trapped in the cavity. The thin laminated tines became one 6 µm layer.</p>
             <div class="fig-row">
               <figure class="fig">
-                <a href="../assets/img/mems/v41-port-seal.webp" data-zoom><img src="../assets/img/mems/v41-port-seal.webp" width="1600" height="1000" alt="Close-up of the port seal: nitride plugs filling two slots in the polysilicon channel roof, under a nitride seal cap" loading="lazy"></a>
-                <figcaption>The port seal: nitride plugs fill the two 1 µm slots under the seal cap</figcaption>
+                <a href="../assets/img/mems/die-3d.webp" data-zoom><img src="../assets/img/mems/die-3d.webp" width="1159" height="751" alt="3D model of the first PolyMUMPs die: two units, each with a circular diaphragm carrying epoxy dots, a comb-driven tuning fork, and wiring to seven bond pads" loading="lazy"></a>
+                <figcaption>First version: the PolyMUMPs die, with epoxy dots on each diaphragm and seven bond pads</figcaption>
               </figure>
               <figure class="fig">
-                <a href="../assets/img/mems/v41-root-neck.webp" data-zoom><img src="../assets/img/mems/v41-root-neck.webp" width="1600" height="1000" alt="Close-up of the released root block with release holes, joined to the tines and held by a short neck on its anchor" loading="lazy"></a>
-                <figcaption>The released root block, held by its 6 × 8 µm neck</figcaption>
+                <a href="../assets/img/mems/layout-labeled.webp" data-zoom><img src="../assets/img/mems/layout-labeled.webp" width="1187" height="1248" alt="PolyMUMPs mask layout of the first die: the sealed sense half on top, the vented reference half below, and seven bond pads" loading="lazy"></a>
+                <figcaption>First version: the 8-mask PolyMUMPs layout</figcaption>
               </figure>
             </div>
-            <figure class="fig">
-              <a href="../assets/img/mems/v41-section.webp" data-zoom><img src="../assets/img/mems/v41-section.webp" width="2000" height="1356" alt="Labeled cross-section of the finished v4.1 sense unit: hole-free diaphragm over a vacuum cavity, the sealed port, the 6 µm lever plate and tine, the released root block and neck, and the rotor stud up to metal 1" loading="lazy"></a>
-              <figcaption>Cross-section of the finished sense unit, from the sealed port to the stud that connects to the CMOS wiring (vertical scale ×7)</figcaption>
-            </figure>
-            <p>The solid FEA will check the scale factor under the 1 atm standing load and confirm the mode split from the beam model.</p>
           </section>
         </article>
       </div>
@@ -216,15 +231,15 @@
           <span class="section__rule" aria-hidden="true"></span>
         </div>
         <div class="gallery">
-          <figure><a href="../assets/img/mems/layout.webp" data-zoom><img class="fit" src="../assets/img/mems/layout.webp" width="1516" height="1516" alt="Full mask layout of the die with all layers" loading="lazy"></a><figcaption>Full mask layout, all layers</figcaption></figure>
-          <figure><a href="../assets/img/mems/final-cad.webp" data-zoom><img class="fit" src="../assets/img/mems/final-cad.webp" width="1793" height="1800" alt="Final layout CAD of the die" loading="lazy"></a><figcaption>Final layout CAD</figcaption></figure>
-          <figure><a href="../assets/img/mems/mask-table.webp" data-zoom><img class="fit" src="../assets/img/mems/mask-table.webp" width="1162" height="587" alt="Table of the 8 PolyMUMPs masks and what each defines" loading="lazy"></a><figcaption>The 8 masks and what each one defines</figcaption></figure>
-          <figure><a href="../assets/img/mems/sections-all.webp" data-zoom><img class="fit" src="../assets/img/mems/sections-all.webp" width="1800" height="1371" alt="All simulated cross-sections through the die" loading="lazy"></a><figcaption>All simulated cross-sections</figcaption></figure>
-          <figure><a href="../assets/img/mems/v41-sense-open.webp" data-zoom><img class="fit" src="../assets/img/mems/v41-sense-open.webp" width="1600" height="1000" alt="3D model of the v4.1 sense unit with the cap hidden, showing the stud stacks and metal-1 lines around the tuning fork" loading="lazy"></a><figcaption>v4.1 sense unit with the cap hidden, showing the stud stacks and metal-1 lines</figcaption></figure>
-          <figure><a href="../assets/img/mems/v41-modes.webp" data-zoom><img class="fit" src="../assets/img/mems/v41-modes.webp" width="2000" height="1482" alt="Drawing of the v4.1 outer root and neck, with beam-model mode shapes for the anti-phase, in-phase, and out-of-plane modes" loading="lazy"></a><figcaption>v4.1 root and neck, with mode shapes from the beam model</figcaption></figure>
-          <figure><a href="../assets/img/mems/v41-flow-1.webp" data-zoom><img class="fit" src="../assets/img/mems/v41-flow-1.webp" width="1868" height="1596" alt="v4.1 process flow steps 1 to 3: KOH trench and floor nitride, Poly0 and cavity oxide, and the hole-free Poly1 diaphragm" loading="lazy"></a><figcaption>v4.1 process, steps 1–3: trench, ground plane, and diaphragm</figcaption></figure>
-          <figure><a href="../assets/img/mems/v41-flow-2.webp" data-zoom><img class="fit" src="../assets/img/mems/v41-flow-2.webp" width="1868" height="1596" alt="v4.1 process flow steps 4 to 6: cavity release through the port, the LPCVD vacuum seal, and oxide 2 with dimple molds and vias" loading="lazy"></a><figcaption>Steps 4–6: cavity release and the vacuum seal</figcaption></figure>
-          <figure><a href="../assets/img/mems/v41-flow-3.webp" data-zoom><img class="fit" src="../assets/img/mems/v41-flow-3.webp" width="1868" height="1596" alt="v4.1 process flow steps 7 to 9: the 6 µm resonator layer, stud, refill, cap and metal 1, and the final release" loading="lazy"></a><figcaption>Steps 7–9: resonator layer, wiring, and final release</figcaption></figure>
+          <figure><a href="../assets/img/mems/final-die-full.webp" data-zoom><img src="../assets/img/mems/final-die-full.webp" width="1354" height="838" alt="CAD of the full 1 mm die block with the cap hidden, showing both units in their trenches" loading="lazy"></a><figcaption>The full die in CAD, cap hidden</figcaption></figure>
+          <figure><a href="../assets/img/mems/fea-deform-zoom.webp" data-zoom><img class="fit" src="../assets/img/mems/fea-deform-zoom.webp" width="1661" height="686" alt="Close-up of the Ansys deformation result on the SENSE unit: the diaphragm deflects most at its center and the tines bow" loading="lazy"></a><figcaption>Close-up of the SENSE unit’s deformation in Ansys</figcaption></figure>
+          <figure><a href="../assets/img/mems/masks-die.webp" data-zoom><img class="fit" src="../assets/img/mems/masks-die.webp" width="2000" height="1567" alt="Mask layout of the whole 1 mm die with the SENSE and REF units on the left and the blank CMOS area on the right" loading="lazy"></a><figcaption>Mask layout of the whole die, with the CMOS area left blank</figcaption></figure>
+          <figure><a href="../assets/img/mems/masks-all.webp" data-zoom><img class="fit" src="../assets/img/mems/masks-all.webp" width="2000" height="1499" alt="All 15 masks shown one at a time in process order, from the trench mask to the REF vent mask" loading="lazy"></a><figcaption>All 15 masks, one at a time, in process order</figcaption></figure>
+          <figure><a href="../assets/img/mems/masks-checks.webp" data-zoom><img class="fit" src="../assets/img/mems/masks-checks.webp" width="1964" height="1502" alt="Table of the mask layers and their purposes, with the list of automated layout checks, all passing" loading="lazy"></a><figcaption>The mask layers and the automated layout checks</figcaption></figure>
+          <figure><a href="../assets/img/mems/v42-modes.webp" data-zoom><img class="fit" src="../assets/img/mems/v42-modes.webp" width="2000" height="1482" alt="Drawing of the root block and neck, with beam-model mode shapes for the anti-phase, in-phase, and out-of-plane modes" loading="lazy"></a><figcaption>The beam-model mode check for the root and neck, before the FEA</figcaption></figure>
+          <figure><a href="../assets/img/mems/v42-flow-1.webp" data-zoom><img class="fit" src="../assets/img/mems/v42-flow-1.webp" width="1868" height="1596" alt="Process flow steps 1 to 3: KOH trench and floor nitride, Poly0 and cavity oxide, and the hole-free Poly1 diaphragm" loading="lazy"></a><figcaption>Process steps 1–3: trench, ground plane, and diaphragm</figcaption></figure>
+          <figure><a href="../assets/img/mems/v42-flow-2.webp" data-zoom><img class="fit" src="../assets/img/mems/v42-flow-2.webp" width="1868" height="1596" alt="Process flow steps 4 to 6: cavity release through the port, the LPCVD vacuum seal, and oxide 2 with dimple molds and vias" loading="lazy"></a><figcaption>Steps 4–6: cavity release and the vacuum seal</figcaption></figure>
+          <figure><a href="../assets/img/mems/v42-flow-3.webp" data-zoom><img class="fit" src="../assets/img/mems/v42-flow-3.webp" width="1868" height="1596" alt="Process flow steps 7 to 9: the 6 µm resonator layer, stud, refill, cap and metal 1, and the final release" loading="lazy"></a><figcaption>Steps 7–9: resonator layer, wiring, and final release</figcaption></figure>
         </div>
       </div>
     </section>
